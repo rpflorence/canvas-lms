@@ -1,5 +1,13 @@
-I18n.scoped 'AssignmentDetailsDialog', (I18n) ->
-  class @AssignmentDetailsDialog
+define [
+  'i18n'
+  'jquery'
+  'jst/AssignmentDetailsDialog'
+  'jquery.instructure_jquery_patches' # dialog
+], (I18n, $, assignmentDetailsDialogTemplate) ->
+
+  I18n = I18n.scoped 'AssignmentDetailsDialog'
+
+  class AssignmentDetailsDialog
     constructor: (@assignment, @gradebook) ->
       scores = (student["assignment_#{@assignment.id}"].score for own idx, student of @gradebook.students when student["assignment_#{@assignment.id}"]?.score?)
       locals =
@@ -7,12 +15,12 @@ I18n.scoped 'AssignmentDetailsDialog', (I18n) ->
         cnt: scores.length
         max: Math.max scores...
         min: Math.min scores...
-        average: do (scores) -> 
-          total=0
+        average: do (scores) ->
+          total = 0
           total += score for score in scores
           Math.round(total / scores.length)
-      
-      tally = 0 
+
+      tally = 0
       width = 0
       totalWidth = 100
       $.extend locals, 
@@ -26,6 +34,6 @@ I18n.scoped 'AssignmentDetailsDialog', (I18n) ->
         noneRightWidth: width = totalWidth * ((@assignment.points_possible - locals.max) / @assignment.points_possible)
         noneRightLeft: (tally += width) - width
 
-      $(Template 'AssignmentDetailsDialog', locals).dialog
+      $(assignmentDetailsDialogTemplate(locals)).dialog
         width: 375
         close: -> $(this).remove()

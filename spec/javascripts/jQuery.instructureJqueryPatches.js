@@ -1,5 +1,5 @@
 (function() {
-  define(['jquery.instructure_jquery_patches'], function(jQuery) {
+  define(['jquery', 'jquery.instructure_jquery_patches'], function(jQuery) {
     module('instructure jquery patches');
     return test('parseJSON', function() {
       deepEqual(jQuery.parseJSON('{ "var1": "1", "var2" : 2 }'), {

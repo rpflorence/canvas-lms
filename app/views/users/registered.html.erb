@@ -6,6 +6,16 @@
 %>
 <% js_block :i18n_scope => "users.registered" do %>
 <script type="text/javascript">
+// file: app/views/users/registered.html.erb
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('users.registered');
+
 $(document).ready(function() {
   var runAjax = true;
   $(".re_send_confirmation_link").click(function(event) {
@@ -41,6 +51,7 @@ $(document).ready(function() {
     return false;
   });
   
+});
 });
 
 function onYouTubePlayerReady(playerid){

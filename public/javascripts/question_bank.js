@@ -1,4 +1,14 @@
-I18n.scoped("question_bank", function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'find_outcome',
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_misc_plugins' /* .dim */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */
+], function(I18n, $, find_outcome) {
+
+  I18n = I18n.scoped("question_bank");
+
 $(document).ready(function() {
   function updateOutcomes(outcomes) {
     $(".add_outcome_text").text(I18n.t("updating_outcomes", "Updating Outcomes...")).attr('disabled', true);

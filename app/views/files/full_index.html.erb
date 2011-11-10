@@ -1,7 +1,7 @@
 <% 
   content_for :page_title, join_title(t(:page_title, "Files"), @context && @context.name)
   jammit_css :full_files
-  jammit_js :full_files 
+  js_bundle :full_files 
   showing_all_contexts = @context.is_a?(UserProfile) && @context.user == @current_user && params[:show_all_contexts]
 %>
 <div id="file_uploads" style="display: none;">
@@ -506,11 +506,21 @@ HEREDOC
 </div>
 <% js_block :i18n_scope => 'files' do %>
 <script>
+require([
+  'INST' /* INST */,
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_date_and_time' /* time_field, datetime_field */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jqueryui/progressbar' /* /\.progressbar/ */,
+  'vendor/scribd.view' /* scribd */
+], function(INST, I18n, $) {
+
+  I18n = I18n.scoped('files');
+
 window.contexts = <%= raw @contexts.to_json(:permissions => {:user => @current_user, :policies => [:create_collaborations,:manage_files,:update,:manage_grades,:read_roster]}, :methods => :asset_string, :include_root => false) %>;
 
-if (!window.INST) {
-  window.INST = {};
-}
 INST.downloadFolderFiles = function(url) {
   var cancelled = false;
   $("#download_folder_files_dialog .status_box .status").text(I18n.t('messages.gathering_data', "Gathering data..."));
@@ -560,6 +570,7 @@ INST.downloadFolderFiles = function(url) {
   }
   checkForChange();
 }
+});
 </script>
 <% end %>
 <div id="download_folder_files_dialog" style="display: none;">

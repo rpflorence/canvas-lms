@@ -42,6 +42,18 @@
 
 <% js_block :i18n_scope => 'terms.index' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_date_and_time' /* parseFromISO, date_field */,
+  'jquery.instructure_forms' /* formSubmit, fillFormData, getFormData, formErrors */,
+  'jquery.instructure_misc_helpers' /* replaceTags, /\$\.underscore/ */,
+  'jquery.instructure_misc_plugins' /* confirmDelete */,
+  'jquery.templateData' /* fillTemplateData */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('terms.index'); 
+
 $(document).ready(function() {
   $(".edit_term_link").click(function(event) {
     event.preventDefault();
@@ -119,6 +131,7 @@ $(document).ready(function() {
     $("#terms").prepend($term.show());
     $term.find(".edit_term_link").click();
   });
+});
 });
 </script>
 <% end %>

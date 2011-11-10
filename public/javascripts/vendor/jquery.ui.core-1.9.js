@@ -7,7 +7,7 @@
  *
  * http://docs.jquery.com/UI
  */
-(function( $, undefined ) {
+define(['jquery'], function( $, undefined ) {
 
 // prevent duplicate loading
 // this is only a problem because we proxy existing functions
@@ -304,4 +304,4 @@ $.extend( $.ui, {
 	}
 });
 
-})( jQuery );
+});

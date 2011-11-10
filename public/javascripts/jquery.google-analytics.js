@@ -1,7 +1,16 @@
-var _gaq = _gaq || [];
+require([
+  'INST' /* INST */,
+  'jquery' /* $ */
+], function(INST, $) {
 
-(function($, INST) {
-  var asyncScriptInserted = false;
+ // requires INST global
+
+  var _gaq = window._gaq = window._gaq || [];
+
+  // insert ga.js async
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 
   /**
    * Enables Google Analytics tracking on the page from which it's called.
@@ -83,4 +92,11 @@ var _gaq = _gaq || [];
     });
   }
 
-})(jQuery, this.INST);
+  return {
+    trackPage: $.trackPage,
+    setTrackingVar: $.setTrackingVar,
+    trackEvent: $.trackEvent,
+    trackPageView: $.trackPageView
+  };
+
+});

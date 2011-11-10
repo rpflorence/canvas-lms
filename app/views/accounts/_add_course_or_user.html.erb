@@ -104,9 +104,22 @@
   </div>
 </div>
 
-<% jammit_js :user_sortable_name %>
-<% js_block :i18n_scope => "accounts" do %>
+
+<% js_bundle :user_sortable_name %>
+<% js_block :i18n_scope => 'accounts' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* htmlEscape, /\$\.h/ */,
+  'jquery.rails_flash_notifications' /* flashMessage */,
+  'jquery.templateData' /* fillTemplateData */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('accounts');
+
   $(document).ready(function() {
     $(".add_user_link").click(function(event) {
       event.preventDefault();
@@ -191,6 +204,7 @@
       $("#add_course_dialog").dialog('close');
     });
   });
+});
 </script>
 <% end %>
 <% end %>

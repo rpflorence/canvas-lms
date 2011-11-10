@@ -1,6 +1,13 @@
-I18n.scoped 'conversations_intro', (I18n) ->
-  $.conversationsIntroSlideshow = ->
-    introSlideshow = new window.Slideshow('conversations_intro')
+define [
+  'i18n'
+  'compiled/slideshow'
+  'jquery.ajaxJSON'
+], (I18n, Slideshow) ->
+
+  I18n = I18n.scoped 'conversations_intro'
+
+  ->
+    introSlideshow = new Slideshow('conversations_intro')
 
     introSlideshow.addSlide I18n.t('titles.slide1', 'Slide 1'), (slide) ->
       slide.addImage('/images/conversations/intro/icon.png', 'icon')

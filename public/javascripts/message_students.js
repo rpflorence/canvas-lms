@@ -15,7 +15,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-I18n.scoped("message_students", function(I18n) {
+
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_plugins' /* showIf */
+], function(I18n, $) {
+
+  I18n = I18n.scoped("message_students");
+
   var $message_students_dialog = $("#message_students_dialog");
   var currentSettings = {};
   window.messageStudents = function(settings) {
@@ -126,4 +136,6 @@ I18n.scoped("message_students", function(I18n) {
       }
     });
   });
+
+  return messageStudents;
 });

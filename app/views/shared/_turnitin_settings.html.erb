@@ -41,6 +41,14 @@
 
 <% js_block :i18n_scope => 'shared/turnitin_settings' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit, formErrors */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_plugins' /* showIf */
+], function(I18n, $) {
+
 $(document).ready(function() {
   var noSubmit = <%= assignment.new_record? ? 'true' : 'false' %>;
   $('#settings_exclude_small_matches').change(function() {
@@ -100,6 +108,7 @@ $(document).ready(function() {
   $form.find('.cancel_button').click(function(event) {
     $form.dialog('close');
   });
+});
 });
 </script>
 <% end %>

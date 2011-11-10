@@ -11,8 +11,9 @@
   
   <%= javascript_include_tag "firebugx.js", "jquery-1.3.2.js", "jquery-attr-patch.js" "jquery-ui-1.7.2.js", "date.js", "reminders.js", "instructure_helper.js", "ajax_errors.js", "page_views.js", :cache => "cache/interactions" %>
   <script type="text/javascript">
-    INST.environment = "<%= ENV["RAILS_ENV"] %>";
-    INST.logPageViews = <%= @headers === false ? "false" : "true" %>;
+  INST = window.INST || {};
+  INST.environment = "<%= ENV["RAILS_ENV"] %>";
+  INST.logPageViews = <%= @headers === false ? "false" : "true" %>;
   </script>
   <%= yield :javascripts %>
 </head>
@@ -68,6 +69,18 @@
 <% if wizard %>
   <% js_block :i18n_scope => 'eportfolio' do %>
   <script>
+  require([
+    'INST' /* INST */,
+    'i18n' /* I18n.t */,
+    'jquery' /* $ */,
+    'jquery.google-analytics' /* trackPage */,
+    'jquery.instructure_jquery_patches' /* windowScrollTop */,
+    'jquery.instructure_misc_plugins' /* showIf */,
+    'jquery.templateData' /* fillTemplateData, getTemplateData */
+  ], function(INST, I18n, $) {
+
+    I18n = I18n.scoped('eportfolio');
+
     $(document).ready(function() {
       $(".close_wizard_link").click(function(event) {
         event.preventDefault();
@@ -137,6 +150,7 @@
       }, 1000);
       $(window).trigger('resize');
     });
+  });
   </script>
   <% end %>
   <div id="wizard_box">
@@ -168,8 +182,10 @@
 <% end %>
 <% if ENV['RAILS_ENV'] == 'production' %>
   <script type="text/javascript">
+  require(['jquery.google-analytics'], function() {
     // initialize google analytics.
     $.trackPage('UA-9138420-1', { domainName: document.location.hostname });
+  });
   </script>
 <% end %>
 </body>

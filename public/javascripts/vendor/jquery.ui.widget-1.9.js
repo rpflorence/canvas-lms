@@ -7,7 +7,7 @@
  *
  * http://docs.jquery.com/UI/Widget
  */
-(function( $, undefined ) {
+define(['jquery'], function( $, undefined ) {
 
 var slice = Array.prototype.slice;
 
@@ -420,4 +420,4 @@ if ( $.uiBackCompat !== false ) {
 	};
 }
 
-})( jQuery );
+});

@@ -14,7 +14,15 @@ $('#form').disableWhileLoading(promise, {
 });
 
 */
-I18n.scoped('instructure', function(I18n) {
+define([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'vendor/jquery.spin' /* /\.spin/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('instructure');
+
   $.fn.disableWhileLoading = function(deferred, options) {
     return this.each(function() {
       var opts = $.extend(true, {}, $.fn.disableWhileLoading.defaults, options),

@@ -15,14 +15,25 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-(function() {
-  I18n.scoped('#tinymce', function (I18n) {
-    TRANSLATIONS = {
-      embed_from_external_tool: I18n.t('embed_from_external_tool', '"Embed content from External Tool"'),
-      more_external_tools: $.h(I18n.t('more_external_tools', "More External Tools"))
-    };
-  });
-	tinymce.create('tinymce.plugins.InstructureExternalTools', {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'str/htmlEscape',
+  'jquery.dropdownList' /* dropdownList */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* /\$\.h/, replaceTags */,
+  'jquery.instructure_misc_plugins' /* /\.log/ */,
+  'tinymce.editor_box' /* editorBox */
+], function(I18n, $, htmlEscape) {
+
+  I18n = I18n.scoped('#tinymce');
+
+  var TRANSLATIONS = {
+    embed_from_external_tool: I18n.t('embed_from_external_tool', '"Embed content from External Tool"'),
+    more_external_tools: htmlEscape(I18n.t('more_external_tools', "More External Tools"))
+  };
+
+  tinymce.create('tinymce.plugins.InstructureExternalTools', {
 		init : function(ed, url) {
 		  if(!window || !window.INST || !window.INST.editorButtons || !window.INST.editorButtons.length) {
 		    return
@@ -174,5 +185,5 @@
 	
 	// Register plugin
 	tinymce.PluginManager.add('instructure_external_tools', tinymce.plugins.InstructureExternalTools);
-})();
+});
 

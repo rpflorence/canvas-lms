@@ -1,6 +1,6 @@
 <%
   jammit_css :quizzes
-  jammit_js :quizzes_bundle
+  js_bundle :quizzes_bundle
   content_for :page_title, (@quiz.quiz_title || !@quiz.quiz_title.empty? ? @quiz.quiz_title : t(:default_page_title, 'New Quiz'))
 %>
 <% content_for :right_side do %>
@@ -247,6 +247,15 @@
 <% end %>
 <% js_block :i18n_scope => 'quizzes.new' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_date_and_time' /* time_field, datetime_field */,
+  'jquery.instructure_misc_plugins' /* confirmDelete */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('quizzes.new');
+
 window.quizAssignmentId = "<%= @assignment ? @assignment.id : "" %>";
 $(document).ready(function() {
   $(".delete_quiz_link").click(function(event) {
@@ -256,6 +265,7 @@ $(document).ready(function() {
       url: $(this).attr('href')
     });
   });
+});
 });
 </script>
 <% end %>

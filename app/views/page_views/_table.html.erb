@@ -22,6 +22,15 @@
 <%= will_paginate(@page_views) %>
 <% js_block :i18n_scope => 'page_views._table' do %>
   <script type="text/javascript">
+  require([
+    'i18n' /* I18n.t */,
+    'jquery' /* $ */,
+    'jquery.instructure_misc_helpers' /* parseUserAgentString */,
+    'vendor/jquery.pageless' /* pageless */
+  ], function(I18n, $) {
+
+    I18n = I18n.scoped('page_views._table');
+
     $(function(){
       $('#page_view_results').pageless({
         totalPages: <%= @page_views.total_pages %>,
@@ -46,5 +55,6 @@
         });
       }).triggerHandler('page_views_added');
     });
+  });
   </script>
 <% end %>

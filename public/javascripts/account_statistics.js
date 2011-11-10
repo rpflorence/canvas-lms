@@ -16,7 +16,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-I18n.scoped('accounts.statistics', function(I18n) {
+require([
+  'i18n',
+  'jquery', // $
+  'jquery.ajaxJSON', // ajaxJSON
+  'jquery.instructure_jquery_patches', // /\.dialog/
+  'jquery.instructure_misc_helpers' // replaceTags
+], function(I18n, $) {
+
+  I18n = I18n.scoped('accounts.statistics');
+
   $(document).ready(function() {
     $(".over_time_link").live('click', function(event) {
       event.preventDefault();
@@ -38,6 +47,8 @@ I18n.scoped('accounts.statistics', function(I18n) {
         width: 630,
         height: 330
       }).dialog('open').dialog('option', 'title', I18n.t('title_data_point_over_time', "%{data_point} Over Time", {data_point: axis}));
+
+      // google dependencies declared in views/acccounts/statistics since google.load uses document.write :(
       var data = new google.visualization.DataTable();
       data.addColumn('date', I18n.t('heading_date', 'Date'));
       data.addColumn('number', axis || I18n.t('heading_value', "Value"));
@@ -60,5 +71,4 @@ I18n.scoped('accounts.statistics', function(I18n) {
       chart.draw(data, {displayAnnotations: false});
     }
   });
-  google.load('visualization', '1', {'packages':['annotatedtimeline']});
 });

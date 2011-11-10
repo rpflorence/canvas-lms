@@ -1,5 +1,5 @@
 <%
-  jammit_js :quizzes_bundle, :question_bank
+  js_bundle :quizzes_bundle, :question_bank
   jammit_css :quizzes
   content_for :page_title, @bank.title
 %>
@@ -138,6 +138,21 @@
 
 <% js_block :i18n_scope => 'question_banks.show' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_forms' /* formSubmit, getFormData, formErrors */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags */,
+  'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
+  'jquery.keycodes' /* keycodes */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('question_banks.show');
+
 $(document).ready(function() {
   if($("#more_questions").length > 0) {
     $(".display_question .move").remove();
@@ -438,6 +453,7 @@ $(document).ready(function() {
   $("#move_question_dialog :radio").change(function() {
     $("#move_question_dialog .new_question_bank_name").showIf($(this).attr('checked') && $(this).val() == 'new');
   });
+});
 });
 </script>
 <% end %>

@@ -66,12 +66,13 @@ describe ApplicationHelper do
   context "i18n js" do
     it "should include appropriate inline translations if there is a valid I18n scope" do
       js_blocks << {:i18n_scope => "time", :contents => '<script>alert("test")</script>'}
-      render_js_blocks.should match(/<script>.*\{"en":\{"time".*I18n\.scoped\("time", function\(I18n\)\{\nalert\("test"\)\n\}\);\n<\/script>/m)
+      render_js_blocks.should match(/\{"en":\{"time"/)
     end
 
     it "should not include inline translations if there is an invalid I18n scope" do
       js_blocks << {:i18n_scope => "foo", :contents => '<script>alert("foo")</script>'}
-      render_js_blocks.should == "<script>\nI18n.scoped(\"foo\", function(I18n){\nalert(\"foo\")\n});\n</script>"
+      expected = "<script>\n\nalert(\"foo\")\n</script>\n"
+      render_js_blocks.should == expected
     end
 
     it "should cache inline translations on render" do
@@ -81,10 +82,11 @@ describe ApplicationHelper do
                    {:i18n_scope => "foo", :contents => '<script>alert("foo")</script>'} <<
                    {:i18n_scope => "foo", :contents => '<script>alert("foo2")</script>'}
       output = render_js_blocks
-      output.should match(/<script>.*\{"en":\{"time".*I18n\.scoped\("time", function\(I18n\)\{\nalert\("test"\)\n\}\);\n<\/script>/m)
-      output.should include "<script>\nI18n.scoped(\"time\", function(I18n){\nalert(\"test2\")\n});\n</script>"
-      output.should include "<script>\nI18n.scoped(\"foo\", function(I18n){\nalert(\"foo\")\n});\n</script>"
-      output.should include "<script>\nI18n.scoped(\"foo\", function(I18n){\nalert(\"foo2\")\n});\n</script>"
+      output.scan(/\{"en":\{"time"/).size.should == 1
+      output.should match(/alert\("test"\)/)
+      output.should match(/alert\("test2"\)/)
+      output.should match(/alert\("foo"\)/)
+      output.should match(/alert\("foo2"\)/)
       ApplicationHelper.cached_translation_blocks.size.should == 2
     end
   end

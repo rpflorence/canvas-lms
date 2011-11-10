@@ -37,8 +37,18 @@
 <% end %>
 <% js_block :i18n_scope => 'assignments' do %>
 <script>
-var submissionsHash = <%= raw @submissions_hash.to_json %>;
-var managedAssignments = null;
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_misc_plugins' /* showIf */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'vendor/date' /* Date.parse */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('assignments');
+
+window.submissionsHash = <%= raw @submissions_hash.to_json %>;
+window.managedAssignments = null;
 $(document).ready(function() {
   if(managedAssignments) {
     for(var idx in managedAssignments) {
@@ -124,6 +134,7 @@ $(document).ready(function() {
   }, function() {
     $(this).attr('title', '');
   });
+});
 });
 </script>
 <% end %>

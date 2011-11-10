@@ -254,22 +254,37 @@
 <% end %>
 
 <script>
-  window.JSON || document.write('<%= (include_javascripts :json2).gsub("</script>", "<\\/script>") %>');
-  var INST = <%= raw(inst_env.to_json) %>;
-  var ENV = <%= raw env.to_json %>;
+  (function() {
+    if (window.JSON) return;
+    var s = document.createElement('script');
+    s.src = "/javascripts/vendor/json2.js";
+    var h = document.getElementsByTagName('head')[0];
+    h.appendChild(s);
+  }());
+
+  INST = <%= raw(inst_env.to_json) %>;
+
+  require = {
+    //urlArgs: "bust=" + +new Date(),
+    baseUrl: '<%= js_base_url %>',
+    paths: {
+      common: 'compiled/bundles/common',
+      jquery: 'vendor/jquery-1.6.4',
+      jqueryui: 'vendor/jqueryui',
+      uploadify: '../flash/uploadify/jquery.uploadify.v2.1.4'
+    }
+  };
 </script>
+<script src="<%= js_base_url %>/vendor/require.js"></script>
+<script src="<%= js_base_url %>/compiled/bundles/common.js"></script>
 
-<%= include_javascripts :common %>
-
-<script>
-  I18n.locale = <%= @locale %>;
-</script>
-
-<%= include_javascripts(*jammit_js_bundles) unless jammit_js_bundles.empty?  %>
-<%= render_js_blocks %>
 <%= javascript_include_tag(Account.site_admin.settings[:global_javascript]) if Account.site_admin.settings[:global_javascript].present? %>
+
 <% if @domain_root_account && @domain_root_account.settings[:global_includes] && !@domain_root_account.settings[:global_javascript].try(:strip).blank? %>
   <script src="<%= @domain_root_account.settings[:global_javascript] %>"></script>
 <% end %>
+
+<%= include_js_bundles %>
+<%= render_js_blocks %>
 </body>
 </html>

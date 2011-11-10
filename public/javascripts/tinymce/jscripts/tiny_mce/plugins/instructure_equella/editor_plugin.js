@@ -15,7 +15,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-(function() {
+require([
+  'jquery' /* $ */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */
+], function($) {
+
 	tinymce.create('tinymce.plugins.InstructureEquella', {
 		init : function(ed, url) {
 			ed.addCommand('instructureEquella', function() {
@@ -111,5 +115,5 @@
 	
 	// Register plugin
 	tinymce.PluginManager.add('instructure_equella', tinymce.plugins.InstructureEquella);
-})();
+});
 

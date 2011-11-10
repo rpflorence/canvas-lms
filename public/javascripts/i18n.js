@@ -1,6 +1,13 @@
-(function(){
+define([
+  'jquery',
+  'str/htmlEscape',
+  'str/pluralize',
+  'str/escapeRegex',
+  'vendor/date' /* Date.parse, Date.UTC */
+], function($, htmlEscape, pluralize, escapeRegex) {
+
 // Instantiate the object
-var I18n = I18n || {};
+var I18n = {};
 
 // Set default locale to english
 I18n.defaultLocale = "en";
@@ -8,8 +15,7 @@ I18n.defaultLocale = "en";
 // Set default separator
 I18n.defaultSeparator = ".";
 
-// Set current locale to null
-I18n.locale = null;
+I18n.locale = document.documentElement.getAttribute('lang');
 
 // Set the placeholder format. Accepts `{{placeholder}}` and `%{placeholder}`.
 I18n.PLACEHOLDER = /(?:\{\{|%\{)(.*?)(?:\}\}?)/gm;
@@ -113,11 +119,11 @@ I18n.interpolate = function(message, options) {
     }
     if (needsEscaping) {
       if (!value.htmlSafe) {
-        value = $.h(value);
+        value = htmlEscape(value);
       }
     } else if (value.htmlSafe) {
       needsEscaping = true;
-      message = $.h(message);
+      message = htmlEscape(message);
     }
 
     regex = new RegExp(placeholder.replace(/\{/gm, "\\{").replace(/\}/gm, "\\}"));
@@ -133,7 +139,7 @@ I18n.applyWrappers = function(string, wrappers) {
   var keys = [];
   var key;
 
-  string = $.h(string);
+  string = htmlEscape(string);
   if (typeof(wrappers) == "string") {
     wrappers = {'*': wrappers};
   }
@@ -144,7 +150,7 @@ I18n.applyWrappers = function(string, wrappers) {
   for (var i in keys) {
     key = keys[i];
     if (!this.wrapperRegexes[key]) {
-      var escapedKey = $.regexEscape(key);
+      var escapedKey = escapeRegex(key);
       this.wrapperRegexes[key] = new RegExp(escapedKey + "([^" + escapedKey + "]*)" + escapedKey, "g");
     }
     string = string.replace(this.wrapperRegexes[key], wrappers[key])
@@ -526,7 +532,7 @@ I18n.scope.prototype = {
   translate: function(scope, defaultValue, options) {
     options = options || {};
     if (typeof(options.count) != 'undefined' && typeof(defaultValue) == "string" && defaultValue.match(/^[\w\-]+$/)) {
-      defaultValue = $.pluralize_with_count(options.count, defaultValue);
+      defaultValue = pluralize.withCount(options.count, defaultValue);
     }
     options.defaultValue = defaultValue;
     return I18n.translate(this.resolveScope(scope), options);
@@ -570,9 +576,7 @@ if (I18n.translations) {
   I18n.translations = {en: {}};
 }
 
-if (typeof define === "function" && define.amd) {
-  define( "i18n", [], function(){ return I18n; } );
-}
-return this.I18n = I18n;
+return I18n;
 
-})();
+});
+

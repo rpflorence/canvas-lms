@@ -1,4 +1,13 @@
-I18n.scoped 'jobs', (I18n) ->
+define [
+  'i18n'
+  'jquery'
+  'vendor/slickgrid'
+  'jquery.ajaxJSON'
+  'vendor/slickgrid'
+  'jquery.instructure_jquery_patches'
+], (I18n, $, _ajaxJSON, Slick) ->
+  I18n = I18n.scoped 'jobs'
+
   class FlavorGrid
     constructor: (@options, @type_name, @grid_name) ->
       @data = @options.data

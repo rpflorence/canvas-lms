@@ -1,4 +1,10 @@
-I18n.scoped('quizzes.rubric', function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('quizzes.rubric');
 
 $(document).ready(function() {
   $(".show_rubric_link").click(function(event) {

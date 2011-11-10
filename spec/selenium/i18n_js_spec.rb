@@ -6,6 +6,8 @@ describe "i18n js selenium tests" do
   before do
     course_with_teacher_logged_in
     get "/"
+    # get I18n global for all the tests
+    driver.execute_script "require(['i18n'], function (I18n) { window.I18n = I18n });"
   end
 
   context "html safety" do

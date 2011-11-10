@@ -6,7 +6,7 @@
   </div>
 <% end %>
 
-<% jammit_js :edit_rubric %>
+<% js_bundle :edit_rubric %>
 <% content_for :stylesheets do %>
 <style>
 #rubrics .find_rubric_link {
@@ -46,6 +46,15 @@
 <% end %>
 <% js_block :i18n_scope => 'rubrics.index' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'find_outcome',
+  'jquery.instructure_misc_plugins' /* confirmDelete */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('rubrics.index');
+
   $(document).ready(function() {
     $("#rubrics ul .delete_rubric_link").click(function(event) {
       event.preventDefault();
@@ -61,6 +70,7 @@
       });
     });
   });
+});
 </script>
 <% end %>
 <h2><%= @context.class.to_s %> <%= t('titles.rubrics', 'Rubrics') %></h2>

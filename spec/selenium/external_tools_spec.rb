@@ -205,7 +205,6 @@ describe "editing external tools" do
     tool2 = @course.context_external_tools.new(:name => "not bob", :consumer_key => "not bob", :shared_secret => "not bob", :url => "https://www.example.com")
     tool2.save!
     get "/courses/#{@course.id}/modules"
-    
     keep_trying_until{ driver.execute_script("return window.modules.refreshed == true") }
 
     driver.find_element(:css, "#context_module_#{@module.id} .add_module_item_link").click
@@ -221,7 +220,6 @@ describe "editing external tools" do
     driver.find_element(:css, "#external_tool_create_title").attribute('value').should == "not bob"
     
     tools[0].click
-    
     keep_trying_until { driver.find_elements(:css, "#resource_selection_dialog")[0].try(:displayed?) }
     
     in_frame('resource_selection_iframe') do

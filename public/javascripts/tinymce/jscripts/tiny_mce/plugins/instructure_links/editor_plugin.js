@@ -15,7 +15,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-(function() {
+require([
+  'jquery' /* $ */,
+  'vendor/scribd.view' /* scribd */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags, getUserServices, findLinkForService, youTubeID */,
+  'jquery.instructure_misc_plugins' /* scrollbarWidth, showIf, hasScrollbar */,
+  'tinymce.editor_box' /* editorBox */
+], function($, scribd) {
+
   var lastLookup = null;
   
   tinymce.create('tinymce.plugins.InstructureLinks', {
@@ -378,5 +386,5 @@
   
   // Register plugin
   tinymce.PluginManager.add('instructure_links', tinymce.plugins.InstructureLinks);
-})();
+});
 

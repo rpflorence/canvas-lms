@@ -38,7 +38,6 @@ describe "student interactions report" do
   
   it "should have sortable columns, except the email header" do
     get "/users/#{@teacher.id}/teacher_activity/course/#{@course.id}"
-    
     ths = driver.find_elements(:css, ".report th")
     ths[0].attribute('class').should match(/header/)
     ths[1].attribute('class').should match(/header/)

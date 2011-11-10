@@ -269,6 +269,12 @@ shared_examples_for "all selenium tests" do
     wait_for_dom_ready
   end
 
+  def check_domready
+    dom_is_ready = driver.execute_script "return window.seleniumDOMIsReady"
+    requirejs_resources_loaded = driver.execute_script "return require.resourcesDone"
+    dom_is_ready and requirejs_resources_loaded
+  end
+
   def wait_for_dom_ready
     keep_trying_until(120) { driver.execute_script("return $") != nil }
     driver.execute_script <<-JS
@@ -280,10 +286,10 @@ shared_examples_for "all selenium tests" do
         }, 1);
       });
     JS
-    dom_is_ready = driver.execute_script "return window.seleniumDOMIsReady"
-    until (dom_is_ready) do
+    domready = check_domready
+    until (domready) do
       sleep 0.1
-      dom_is_ready = driver.execute_script "return window.seleniumDOMIsReady"
+      domready = check_domready
     end
   end
 

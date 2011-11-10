@@ -34,6 +34,22 @@
 
 <% js_block :i18n_scope => 'profile._ways_to_contact' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_forms' /* formSubmit, fillFormData, getFormData, formErrors */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags */,
+  'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.rails_flash_notifications' /* flashMessage */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'jqueryui/tabs' /* /\.tabs/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('profile._ways_to_contact');
+
 $(document).ready(function() {
   $("#communication_channels").tabs();
   $("#communication_channels").bind('tabsshow', function(event) {
@@ -265,6 +281,7 @@ $(document).ready(function() {
   $("#confirm_email_channel .cancel_button").click(function() {
     $("#confirm_email_channel").dialog('close');
   });
+});
 });
 </script>
 <% end %>

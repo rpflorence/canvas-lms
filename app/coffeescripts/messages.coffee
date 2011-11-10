@@ -1,3 +1,28 @@
+define [
+  'i18n'
+  'jquery'
+  'str/htmlEscape'
+  'compiled/conversations_intro'
+  'jquery.ajaxJSON'
+  'jquery.instructure_date_and_time'
+  'jquery.instructure_forms'
+  'jquery.instructure_jquery_patches'
+  'jquery.instructure_misc_helpers'
+  'jquery.instructure_misc_plugins'
+  'jquery.loadingImg'
+  'jquery.rails_flash_notifications'
+  'media_comments'
+  'vendor/jquery.ba-hashchange'
+  'vendor/jquery.ba-tinypubsub'
+  'vendor/jquery.cookie'
+  'vendor/jquery.elastic'
+  'vendor/jquery.pageless'
+  'vendor/jquery.placeholder'
+  'vendor/jquery.scrollTo'
+  'jqueryui/mouse'
+  'jqueryui/position'
+], (I18n, $, htmlEscape, conversationsIntroSlideshow) ->
+
 $conversations = []
 $conversation_list = []
 $messages = []
@@ -649,7 +674,7 @@ I18n.scoped 'conversations', (I18n) ->
     $context = $form_audience.find('.context')
     for elem in $context
       $elem = $(elem)
-      $elem.replaceWith("<a href='#{$.h($elem.data('url'))}'>#{$.h($elem.html())}</a>")
+      $elem.replaceWith("<a href='#{htmlEscape($elem.data('url'))}'>#{htmlEscape($elem.html())}</a>")
 
   parse_query_string = (query_string = window.location.search.substr(1)) ->
     hash = {}
@@ -746,9 +771,9 @@ I18n.scoped 'conversations', (I18n) ->
 
     format_context = (context) ->
       if with_url and context.type is "course"
-        return "<span class='context' data-url='#{$.h(context.url)}'>#{$.h(context.name)}</span>"
+        return "<span class='context' data-url='#{htmlEscape(context.url)}'>#{htmlEscape(context.name)}</span>"
       else
-        return $.h(context.name)
+        return htmlEscape(context.name)
 
     shared_contexts = (course for course_id, roles of contexts.courses when course = @contexts.courses[course_id]).
                 concat(group for group_id, roles of contexts.groups when group = @contexts.groups[group_id]).
@@ -759,7 +784,7 @@ I18n.scoped 'conversations', (I18n) ->
     $.toSentence(format_context(context) for context in shared_contexts)
 
   html_name_for_user = (user, contexts = {courses: user.common_courses, groups: user.common_groups}) ->
-    $.h(user.name) + if contexts.courses?.length or contexts.groups?.length then " <em>" + $.h(MessageInbox.context_list(contexts)) + "</em>" else ''
+    htmlEscape(user.name) + if contexts.courses?.length or contexts.groups?.length then " <em>" + htmlEscape(MessageInbox.context_list(contexts)) + "</em>" else ''
 
   can_add_notes_for = (user) ->
     return false unless MessageInbox.notes_enabled
@@ -806,12 +831,12 @@ I18n.scoped 'conversations', (I18n) ->
           link = "http://" + link if link[0..3] == 'www'
           link = encodeURI(link).replace(/'/g, '%27')
           links.push link
-          "<a href='#{$.h(link)}'>#{$.h(match)}</a>"
+          "<a href='#{htmlEscape(link)}'>#{htmlEscape(match)}</a>"
       )
       link_placeholder
 
     # now escape html
-    message = $.h message
+    message = htmlEscape message
 
     # now put the links back in
     message = message.replace new RegExp(link_placeholder, 'g'), (match, i) ->
@@ -857,7 +882,7 @@ I18n.scoped 'conversations', (I18n) ->
       $message.prepend $('<img />').attr('src', avatar).addClass('avatar')
     user.html_name ?= html_name_for_user(user) if user
     user_name = user?.name ? I18n.t('unknown_user', 'Unknown user')
-    $message.find('.audience').html user?.html_name || $.h(user_name)
+    $message.find('.audience').html user?.html_name || htmlEscape(user_name)
     $message.find('span.date').text $.parseFromISO(data.created_at).datetime_formatted
     $message.find('p').html formatted_message(data.body)
     $message.find("a.show_quoted_text_link").click (event) ->
@@ -895,14 +920,14 @@ I18n.scoped 'conversations', (I18n) ->
 
   build_media_object = (blank, data) ->
     $media_object = blank.clone(true).attr('id', 'media_comment_' + data.media_id)
-    $media_object.find('span.title').html $.h(data.display_name)
-    $media_object.find('span.media_comment_id').html $.h(data.media_id)
+    $media_object.find('span.title').html htmlEscape(data.display_name)
+    $media_object.find('span.media_comment_id').html htmlEscape(data.media_id)
     $media_object
 
   build_attachment = (blank, data) ->
     $attachment = blank.clone(true).attr('id', 'attachment_' + data.id)
     $attachment.data('id', data.id)
-    $attachment.find('span.title').html $.h(data.display_name)
+    $attachment.find('span.title').html htmlEscape(data.display_name)
     $link = $attachment.find('a')
     $link.attr('href', data.url)
     $link.click (e) ->
@@ -922,10 +947,10 @@ I18n.scoped 'conversations', (I18n) ->
     user = MessageInbox.user_cache[data.user_id]
     user.html_name ?= html_name_for_user(user) if user
     user_name = user?.name ? I18n.t('unknown_user', 'Unknown user')
-    $header.find('.title').html $.h(data.assignment.name)
+    $header.find('.title').html htmlEscape(data.assignment.name)
     if data.submitted_at
       $header.find('span.date').text $.parseFromISO(data.submitted_at).datetime_formatted
-    $header.find('.audience').html user?.html_name || $.h(user_name)
+    $header.find('.audience').html user?.html_name || htmlEscape(user_name)
     if data.score && data.assignment.points_possible
       score = "#{data.score} / #{data.assignment.points_possible}"
     else
@@ -948,7 +973,7 @@ I18n.scoped 'conversations', (I18n) ->
     if index > initially_shown
       $inline_more = $more_link.clone(true)
       $inline_more.find('.hidden').text(index - initially_shown)
-      $inline_more.attr('title', $.h(I18n.t('titles.expand_inline', "Show more comments")))
+      $inline_more.attr('title', htmlEscape(I18n.t('titles.expand_inline', "Show more comments")))
       $inline_more.click ->
         submission = $(this).closest('.submission')
         submission.find('.more:hidden').show()
@@ -960,7 +985,7 @@ I18n.scoped 'conversations', (I18n) ->
     if data.submission_comments.length > index
       $more_link.find('a').attr('href', href).attr('target', '_blank')
       $more_link.find('.hidden').text(data.submission_comments.length - index)
-      $more_link.attr('title', $.h(I18n.t('titles.view_submission', "Open submission in new window.")))
+      $more_link.attr('title', htmlEscape(I18n.t('titles.view_submission', "Open submission in new window.")))
       $more_link.hide() if data.submission_comments.length > initially_shown
       $ul.append $more_link
     $submission
@@ -972,9 +997,9 @@ I18n.scoped 'conversations', (I18n) ->
       $comment.prepend $('<img />').attr('src', avatar).addClass('avatar')
     user.html_name ?= html_name_for_user(user) if user
     user_name = user?.name ? I18n.t('unknown_user', 'Unknown user')
-    $comment.find('.audience').html user?.html_name || $.h(user_name)
+    $comment.find('.audience').html user?.html_name || htmlEscape(user_name)
     $comment.find('span.date').text $.parseFromISO(data.created_at).datetime_formatted
-    $comment.find('p').html $.h(data.comment).replace(/\n/g, '<br />')
+    $comment.find('p').html htmlEscape(data.comment).replace(/\n/g, '<br />')
     $comment
 
   inbox_action_url_for = ($action, $conversation) ->
@@ -1023,21 +1048,21 @@ I18n.scoped 'conversations', (I18n) ->
   html_audience_for_conversation = (conversation, cutoff=2) ->
     audience = conversation.audience
 
-    return "<span>#{$.h(I18n.t('notes_to_self', 'Monologue'))}</span>" if audience.length == 0
+    return "<span>#{htmlEscape(I18n.t('notes_to_self', 'Monologue'))}</span>" if audience.length == 0
     context_info = "<em>#{MessageInbox.context_list(conversation.audience_contexts, true)}</em>"
-    return "<span>#{$.h(MessageInbox.user_cache[audience[0]].name)}</span> #{context_info}" if audience.length == 1
+    return "<span>#{htmlEscape(MessageInbox.user_cache[audience[0]].name)}</span> #{context_info}" if audience.length == 1
 
     audience = audience[0...cutoff].concat([audience[cutoff...audience.length]]) if audience.length > cutoff
     $.toSentence(for id_or_array in audience
       if typeof id_or_array is 'number'
-        "<span>#{$.h(MessageInbox.user_cache[id_or_array].name)}</span>"
+        "<span>#{htmlEscape(MessageInbox.user_cache[id_or_array].name)}</span>"
       else
         """
         <span class='others'>
-          #{$.h(I18n.t('other_recipients', "other", count: id_or_array.length))}
+          #{htmlEscape(I18n.t('other_recipients', "other", count: id_or_array.length))}
           <span>
             <ul>
-              #{("<li>#{$.h(MessageInbox.user_cache[id].name)}</li>" for id in id_or_array).join('')}
+              #{("<li>#{htmlEscape(MessageInbox.user_cache[id].name)}</li>" for id in id_or_array).join('')}
             </ul>
           </span>
         </span>
@@ -1261,7 +1286,7 @@ I18n.scoped 'conversations', (I18n) ->
     $forward_form = $('#forward_message_form')
     $('#help_crumb').click (e) ->
       e.preventDefault()
-      $.conversationsIntroSlideshow()
+      conversationsIntroSlideshow()
 
     $('#create_message_form, #forward_message_form').find('textarea').elastic().keypress (e) ->
       if e.which is 13 and e.shiftKey
@@ -1730,3 +1755,6 @@ I18n.scoped 'conversations', (I18n) ->
           params = parse_query_string(match[1])
         select_conversation(null, params)
     .triggerHandler('hashchange')
+
+  MessageInbox
+

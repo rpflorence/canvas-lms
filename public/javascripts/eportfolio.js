@@ -25,9 +25,25 @@
 // settings on their own personal eportfolio, they can't 
 // affect anyone else
 
-I18n.scoped('eportfolio', function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.inst_tree' /* instTree */,
+  'jquery.instructure_forms' /* formSubmit, getFormData, formErrors, errorBox */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags, scrollSidebar */,
+  'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'tinymce.editor_box' /* editorBox */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
+  'jqueryui/progressbar' /* /\.progressbar/ */,
+  'jqueryui/sortable' /* /\.sortable/ */
+], function(I18n, $) {
 
-(function eportfolioInit() {
+  I18n = I18n.scoped('eportfolio');
+
   function ePortfolioFormData() {
     var data = $("#edit_page_form").getFormData({
       object_name: "eportfolio_entry", 
@@ -857,6 +873,4 @@ I18n.scoped('eportfolio', function(I18n) {
       }).dialog('open');
     });
   });
-})();
-
-})
+});

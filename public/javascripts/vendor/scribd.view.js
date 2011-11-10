@@ -47,10 +47,14 @@ On Thu, Jan 27, 2011 at 4:50 PM, Jared Friedman <[redacted]> wrote:
 */
 
 //this file appears to be written so that does not require prototype, fyi - tom
-(function(){
+define([
+  'INST' /* INST */,
+  'i18n' 
+], function(INST, I18n) {
+
 if(typeof scribd == "undefined") {
 
-	var scribd = window.scribd = new Object();
+	var scribd = new Object();
 	
 	/* ------------------------
 		  Scribd Document
@@ -864,8 +868,9 @@ if(typeof scribd == "undefined") {
 		scribd_view_callback();
 	}
 }
-  
-})();
+
+return scribd;
+});
 
 /* ------------------------
      (c) Scribd 2008

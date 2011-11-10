@@ -14,6 +14,8 @@ shared_examples_for "equation editor selenium tests" do
       wait_for_ajaximations
     end
 
+    wait_for_tiny(driver.find_element(:css, "#quiz_description"))
+
     new_question_link = driver.find_element(:css, '.add_question_link')
     2.times do |time|
       new_question_link.click

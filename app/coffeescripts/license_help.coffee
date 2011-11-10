@@ -15,8 +15,16 @@
 # You should have received a copy of the GNU Affero General Public License along
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 #
- 
-I18n.scoped "license_help", (I18n) ->
+
+require [
+  'i18n'
+  'jquery'
+  'jquery.instructure_jquery_patches'
+  'jquery.instructure_misc_plugins'
+  'jquery.loadingImg'
+], (I18n, $) ->
+  I18n = I18n.scoped "license_help"
+
   licenceTypes = ["by", "nc", "nd", "sa"]
   toggleButton = (el, check) -> $(el).toggleClass('selected', !!check).attr('aria-checked', !!check)
   checkButton = (el) -> toggleButton(el, true)

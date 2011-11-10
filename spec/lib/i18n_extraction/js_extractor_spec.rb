@@ -170,29 +170,6 @@ describe I18nExtraction::JsExtractor do
       SOURCE
     end
 
-    it "should not allow scoped blocks" do
-      lambda{ extract(<<-SOURCE, nil, :erb => true) }.should raise_error /scoped blocks are no longer supported in js_blocks/
-        <% js_block do %>
-          <script>
-          I18n.scoped('asdf', function(I18n) {
-            I18n.t('#bar', 'Bar');
-          });
-          </script>
-        <% end %>
-      SOURCE
-
-      # even if you provide an :i18n_scope, you still can't do a scoped block
-      lambda{ extract(<<-SOURCE, nil, :erb => true) }.should raise_error /scoped blocks are no longer supported in js_blocks/
-        <% js_block :i18n_scope => 'asdf' do %>
-          <script>
-          I18n.scoped('qwerty', function(I18n) {
-            I18n.t('#bar', 'Bar');
-          });
-          </script>
-        <% end %>
-      SOURCE
-    end
-
     it "should not allow absolute keys" do
       lambda{ extract(<<-SOURCE, nil, :erb => true) }.should raise_error /absolute keys are not supported in this context/
         <% js_block :i18n_scope => 'asdf' do %>

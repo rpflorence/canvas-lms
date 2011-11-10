@@ -1,8 +1,16 @@
-<% js_block :i18n_scope => "submissions" do %>
+<% js_block :i18n_scope => 'submissions' do %>
 <script>
-  if (!window.INST) {
-    window.INST = {};
-  }
+require([
+  'INST' /* INST */,
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jqueryui/progressbar' /* /\.progressbar/ */
+], function(INST, I18n, $) {
+
+  I18n = I18n.scoped('submissions');
+
   INST.downloadSubmissions = function(url) {
     var cancelled = false;
     $("#download_submissions_dialog").dialog('close').dialog({
@@ -54,7 +62,8 @@
       });
     }
     checkForChange();
-  }
+  };
+});
 </script>
 <% end %>
 <div id="download_submissions_dialog" style="display: none;">

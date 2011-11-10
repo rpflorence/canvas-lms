@@ -65,6 +65,14 @@
 
 <% js_block :i18n_scope => 'content_imports.quizzes' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit, formErrors */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('content_imports.quizzes');
+
 $(document).ready(function() {
   $qti_file_import_form = $("#qti_file_import_form");
   $("#export_file_input").change(function() {
@@ -103,6 +111,7 @@ $(document).ready(function() {
       $(this).formErrors(data);
     }
   });
+});
 });
 </script>
 <% end %>

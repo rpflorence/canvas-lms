@@ -227,6 +227,16 @@ tr.question td .number_answer.correct_answer {
 
 <% js_block :i18n_scope => 'quizzes.statistics' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* scrollSidebar, /\$\.uniq/ */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('quizzes.statistics');
+
 $(document).ready(function() {
   $.scrollSidebar();
   $(".essay_answer").live('click', function(event) {
@@ -283,6 +293,7 @@ $(document).ready(function() {
       }).dialog('open');
     }
   });
+});
 });
 </script>
 <% end %>

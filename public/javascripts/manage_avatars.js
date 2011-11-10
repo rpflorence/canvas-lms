@@ -16,7 +16,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-I18n.scoped('manage_avatars', function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_misc_plugins' /* showIf */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('manage_avatars');
+
 $(document).ready(function() {
   $(".update_avatar_link").live('click', function(event) {
     event.preventDefault();

@@ -137,8 +137,14 @@ HEREDOC
 </div>
 <% js_block do %>
 <script>
+require([
+  'jquery' /* $ */,
+  'jquery.instructure_misc_plugins' /* .dim */
+], function($) {
+
 $(document).ready(function() {
   $(".added").attr('title', <%= t('titles.just_added', "Just added to the Course").to_json.html_safe %>);
+});
 });
 </script>
 <% end %>

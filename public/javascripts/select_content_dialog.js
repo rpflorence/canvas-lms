@@ -16,8 +16,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var INST;
-I18n.scoped('select_content_dialog', function(I18n) {
+require([
+  'INST' /* INST */,
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSONFiles, ajaxJSON */,
+  'jquery.instructure_forms' /* getFormData, errorBox */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags, getUserServices, findLinkForService */,
+  'jquery.instructure_misc_plugins' /* showIf */,
+  'jquery.keycodes' /* keycodes */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.templateData' /* fillTemplateData */
+], function(INST, I18n, $) {
+
+  I18n = I18n.scoped('select_content_dialog');
+
 $(document).ready(function() {
   var external_services = null;
   var $dialog = $("#select_context_content_dialog");

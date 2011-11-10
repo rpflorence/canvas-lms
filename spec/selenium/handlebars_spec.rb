@@ -21,8 +21,19 @@ describe "handlebars selenium tests" do
       {{#t "bye"}}welp, see you l8r! dont forget 2 <a href="{{url}}">like us</a> on facebook lol{{/t}}
     HTML
     driver.execute_script Handlebars.compile_template(template, 'test')
+    result = driver.execute_script <<-JS
+      require(['jst/test'], function(test) {
+        window.templateResult = test({
+          title: 'greetings',
+          name: 'katie',
+          type: 'yoga',
+          items: ['dont forget to stretch!!!'],
+          url: 'http://foo.bar'
+        });
+      });
+      return templateResult;
+    JS
 
-    result = driver.execute_script("return Template('test', {title: 'greetings', name: 'katie', type: 'yoga', items: ['dont forget to stretch!!!'], url: 'http://foo.bar'})")
     result.should eql(<<-RESULT)
       <h1>greetings</h1>
       <p>ohai my name is katie im your <b>yoga</b> instructure!! ;) heres some tips to get you started:</p>
@@ -36,3 +47,4 @@ describe "handlebars selenium tests" do
   end
 
 end
+

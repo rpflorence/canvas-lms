@@ -30,8 +30,19 @@
 //   is selected, makes the selection a link, otherwise creates a link.
 //   options.url is used for the href of the link, and options.title
 //   will be the body of the link if no text is currently selected.
-(function( $ ) {
-  
+
+define([
+  'require',
+  'INST' /* INST */,
+  'jquery' /* jQuery, $ */,
+  'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
+  'jquery.instructure_jquery_patches' /* /\.scrollTop/ */,
+  'jquery.instructure_misc_helpers' /* /\$\.uniq/ */,
+  'jquery.instructure_misc_plugins' /* /\.indicate/ */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
+  'vendor/scribd.view' /* scribd */
+], function(require, INST, $) {
+
   var enableBookmarking = $("body").hasClass('ie');
   $(document).ready(function() {
     enableBookmarking = $("body").hasClass('ie');
@@ -683,7 +694,7 @@
     }
   };
   
-})(jQuery);
+});
 
 // This Nifty Little Effect is for when you add a link the the TinyMCE editor it looks like it is physically transfered to the editor.  
 // unfortunately it doesnt work yet so dont use it.  I might go back to it sometime if we want it. -RS

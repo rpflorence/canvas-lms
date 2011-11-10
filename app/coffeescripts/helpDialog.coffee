@@ -3,10 +3,15 @@
 # $.detect from jquery_misc_helpers
 # jqueryui dialog
 # jquery disableWhileLoading
+
 define 'compiled/helpDialog', [
   'i18n'
   'jst/helpDialog'
   'INST'
+
+  'jquery.instructure_misc_helpers'
+  'jquery.instructure_jquery_patches' # dialog
+  'jquery.disableWhileLoading'
 ], (I18n, helpDialogTemplate, INST) ->
   I18n = I18n.scoped 'HelpDialog'
 
@@ -127,3 +132,4 @@ define 'compiled/helpDialog', [
       $('.help_dialog_trigger').click (event) =>
         event.preventDefault()
         @open()
+

@@ -55,9 +55,22 @@
     }
   </style>
 <% end %>
-<% jammit_js :edit_rubric %>
+<% js_bundle :edit_rubric %>
 <% js_block :i18n_scope => 'rubrics.assessments' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_forms' /* formSubmit, getFormData */,
+  'jquery.instructure_misc_plugins' /* confirmDelete */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.templateData' /* fillTemplateData */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('rubrics.assessments');
+
   window.rubricEditing = null;
   window.rubricAssociation = {
     addAssessment: function($association, assessment) {
@@ -163,6 +176,7 @@
       });
     });
   });
+});
 </script>
 <% end %>
 

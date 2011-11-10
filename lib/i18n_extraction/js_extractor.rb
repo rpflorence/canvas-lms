@@ -46,7 +46,7 @@ module I18nExtraction
       <%\s*(end|\})\s*%>
     /mx
 
-    SCOPED_BLOCK_START = /((require|define)\(.*?function\(.*?I18n.*?I18n\s*=\s*|())I18n\.scoped/m
+    SCOPED_BLOCK_START = /((require|define)\(.*?function\s*\(.*?I18n.*?I18n\s*=\s*|())I18n\.scoped/m
     SCOPED_BLOCK = /^([ \t]*)#{SCOPED_BLOCK_START}\(#{I18N_KEY}(,\s*function\s*\(I18n\)\s*\{|\);)\s?\n((\1[^ ].*?\n)?( *\n|\1(  |\t)[^\n]+\n)+)/m
 
     I18N_ANY = /(I18n)/
@@ -133,9 +133,6 @@ module I18nExtraction
       line_offset = options[:line_offset] || 1
       extract_from_erb(source, :line_offset => line_offset).each do |scope, block_source, offset|
         offset = line_offset + offset
-        find_matches block_source, /#{SCOPED_BLOCK_START}.*/ do |match|
-          raise "scoped blocks are no longer supported in js_blocks, use :i18n_scope instead (line #{offset + match.last})"
-        end
         if scope && (scope = process_literal(scope))
           process_block block_source, scope, options.merge(:restrict_to_scope => true, :line_offset => offset)
         elsif block_source =~ I18N_ANY

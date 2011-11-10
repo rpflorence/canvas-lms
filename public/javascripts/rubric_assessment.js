@@ -15,11 +15,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+define([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* fillFormData */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/, /\.scrollTop/, windowScrollTop */,
+  'jquery.instructure_misc_helpers' /* truncateText */,
+  'jquery.instructure_misc_plugins' /* showIf */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */
+], function(I18n, $) {
 
-var rubricAssessment;
-I18n.scoped('rubric_assessment', function(I18n) {
-rubricAssessment = {
-  
+  I18n = I18n.scoped('rubric_assessment');
+
+// TODO: stop managing this in the view and get it out of the global scope submissions/show.html.erb
+window.rubricAssessment = {
   init: function(){
     var $rubric_criterion_comments_dialog = $("#rubric_criterion_comments_dialog");
 
@@ -293,8 +303,8 @@ rubricAssessment = {
     }
   }
 };
-});
-// actually initialize it on dom ready.
-$(function() {
-  rubricAssessment.init();
+
+$(rubricAssessment.init);
+
+return rubricAssessment;
 });

@@ -16,7 +16,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-I18n.scoped('content_imports', function (I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit, formErrors */,
+  'jquery.instructure_misc_plugins' /* ifExists, showIf */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('content_imports');
+
 $(function(){
   var $config_options = $("#config_options"),
       $export_file_enabled = $("#export_file_enabled"),
@@ -137,3 +145,4 @@ $(function(){
   });
 });
 });
+

@@ -4,6 +4,14 @@
 
 <% js_block :i18n_scope => 'pseudonym_sessions' do %>
 <script type="text/javascript">
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('pseudonym_sessions');
+
 $(document).ready(function() {
   $(".re_send_confirmation_link").click(function(event) {
     event.preventDefault();
@@ -15,6 +23,7 @@ $(document).ready(function() {
       $link.text(I18n.t('errors.request_failed', "Request failed. Try again."));
     });
   });
+});
 });
 </script>
 <% end %>

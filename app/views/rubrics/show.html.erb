@@ -16,7 +16,7 @@
   <a href="<%= context_url(@context, :context_rubrics_url) %>" class="rubrics_url" style="display: none;">&nbsp;</a>
 <% end %>
 
-<% jammit_js :edit_rubric %>
+<% js_bundle :edit_rubric %>
 <% content_for :stylesheets do %>
 <style>
 #rubrics .find_rubric_link {

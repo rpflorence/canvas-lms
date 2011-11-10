@@ -2,6 +2,18 @@
 <% @body_classes << "modal" if @body_classes %>
 <% js_block :i18n_scope => "pseudonyms.login"  do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.fancyplaceholder' /* fancyPlaceholder */,
+  'jquery.google-analytics' /* trackPage, trackPageview */,
+  'jquery.instructure_forms' /* formSubmit, getFormData, formErrors, errorBox */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.rails_flash_notifications' /* flashMessage */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('pseudonyms.login');
+
 $(document).ready(function() {
   $("#register_link").click(function(){
     $.trackPageview("/clicked_register_on_login_form");
@@ -53,6 +65,7 @@ $(document).ready(function() {
     })
     .find(":text:first")
       .focus().select();
+});
 });
 </script>
 <% end %>

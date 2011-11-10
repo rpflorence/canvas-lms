@@ -15,8 +15,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+require([
+  'INST' /* INST */,
+  'i18n',
+  'jquery' /* $ */,
+  'compiled/util/BackoffPoller',
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_date_and_time' /* parseFromISO, time_field, datetime_field */,
+  'jquery.instructure_forms' /* formSubmit, formErrors, errorBox */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_plugins' /* confirmDelete, fragmentChange, showIf */,
+  'jquery.loadingImg' /* loadingImage */,
+  'jquery.templateData' /* fillTemplateData */,
+  'jqueryui/sortable' /* /\.sortable/ */
+], function(INST, I18n, $, BackoffPoller) {
 
-require(['compiled/util/BackoffPoller', 'i18n'], function(BackoffPoller, I18n) {
   I18n = I18n.scoped('profile');
 
   var $profile_table = $(".profile_table"),

@@ -38,6 +38,18 @@
 <% end %>
 <% js_block :i18n_scope => 'shared.add_assignment' do %>
   <script>
+  require([
+    'i18n' /* I18n.t */,
+    'jquery' /* $ */,
+    'jquery.instructure_date_and_time' /* time_field, datetime_field */,
+    'jquery.instructure_forms' /* formSubmit */,
+    'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+    'jquery.instructure_misc_plugins' /* showIf */,
+    'jquery.loadingImg' /* loadingImage */
+  ], function(I18n, $) {
+
+    I18n = I18n.scoped('shared.add_assignment');
+
     $(document).ready(function() {
       $(".add_assignment_inline:not(:first)").remove();
     });
@@ -115,5 +127,6 @@
         $("#add_assignment_inline").dialog('close');
       });
     });
+  });
   </script>
 <% end %>

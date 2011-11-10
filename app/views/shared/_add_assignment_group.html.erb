@@ -20,6 +20,16 @@
 
 <% js_block :i18n_scope => 'shared.add_assignment_group' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.instructure_forms' /* formSubmit, formErrors */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_plugins' /* showIf */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('shared.add_assignment_group');
+
 window.attachAddAssignmentGroup = function($select, url) {
   var $group = $select;
   url = url || $("#add_assignment_type_form").attr('action');
@@ -79,6 +89,7 @@ $(document).ready(function() {
   $("#add_assignment_type .cancel_button").click(function(event) {
     $("#add_assignment_type").dialog('close');
   });
+});
 });
 </script>
 <% end %>

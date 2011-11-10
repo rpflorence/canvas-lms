@@ -16,16 +16,45 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var jsonData, visibleRubricAssessments;
-var anonymousAssignment = false;
+require([
+  'INST' /* INST */,
+  'i18n',
+  'jquery' /* $ */,
+  'str/htmlEscape',
+  'ajax_errors' /* INST.log_error */,
+  'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
+  'jquery.ajaxJSON' /* getJSON, ajaxJSONFiles, ajaxJSON */,
+  'jquery.doc_previews' /* loadDocPreview */,
+  'jquery.instructure_date_and_time' /* parseFromISO */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/, /\.scrollTop/ */,
+  'jquery.instructure_misc_helpers' /* replaceTags, /\$\.store/ */,
+  'jquery.instructure_misc_plugins' /* confirmDelete, showIf, hasScrollbar */,
+  'jquery.keycodes' /* keycodes */,
+  'jquery.loadingImg' /* loadingImg, loadingImage */,
+  'jquery.shake' /* /\.shake/ */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'media_comments' /* mediaComment, mediaCommentThumbnail */,
+  'rubric_assessment' /* rubricAssessment */,
+  'vendor/jquery.ba-hashchange' /* hashchange */,
+  'vendor/jquery.elastic' /* elastic */,
+  'vendor/jquery.getScrollbarWidth' /* getScrollbarWidth */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
+  'vendor/jquery.spin' /* /\.spin/ */,
+  'vendor/jquery.store' /* /\$\.store/ */,
+  'vendor/scribd.view' /* scribd */,
+  'vendor/spin' /* new Spinner */,
+  'vendor/ui.selectmenu' /* /\.selectmenu/ */
+], function(INST, I18n, $, htmlEscape) {
 
-I18n.scoped('gradebook', function(I18n) {
+  I18n = I18n.scoped('gradebook');
 
-(function($, INST, scribd, rubricAssessment) {
-  
-  // fire off the request to get the jsonData,
+  // TODO: get this out of the view speed_grader.html.erb so it doesn't have to be global
+  anonymousAssignment = false;
+
+  // fire off the request to get the jsonData
+  window.jsonData = {};
   $.ajaxJSON(window.location.pathname+ '.json' + window.location.search, 'GET', {}, function(json) {
-    window.jsonData = json;
+    jsonData = json;
     $(EG.jsonReady);
   });
   // ...and while we wait for that, get this stuff ready
@@ -201,7 +230,7 @@ I18n.scoped('gradebook', function(I18n) {
     }
     $("#hide_student_names").attr('checked', hideStudentNames);
     var options = $.map(jsonData.studentsWithSubmissions, function(s, idx){
-      var name = $.htmlEscape(s.name),
+      var name = htmlEscape(s.name),
           className = classNameBasedOnStudent(s);
 
       if(hideStudentNames) {
@@ -217,7 +246,7 @@ I18n.scoped('gradebook', function(I18n) {
         style:'dropdown',
         format: function(text){
           var parts = text.split(" ---- ");
-          return '<span class="ui-selectmenu-item-header">' + $.htmlEscape(parts[0]) + '</span><span class="ui-selectmenu-item-footer">' + parts[1] + '</span>';
+          return '<span class="ui-selectmenu-item-header">' + htmlEscape(parts[0]) + '</span><span class="ui-selectmenu-item-footer">' + parts[1] + '</span>';
         },
         icons: [
           {find: '.graded'},
@@ -1235,7 +1264,7 @@ I18n.scoped('gradebook', function(I18n) {
 
           // if(comment.anonymous) { comment.author_name = "Anonymous"; }
           var $comment = $comment_blank.clone(true).fillTemplateData({ data: comment });
-          $comment.find('span.comment').html($.htmlEscape(comment.comment).replace(/\n/g, "<br />"));
+          $comment.find('span.comment').html(htmlEscape(comment.comment).replace(/\n/g, "<br />"));
           // this is really poorly decoupled but over in speed_grader.html.erb these rubricAssessment. variables are set.
           // what this is saying is: if I am able to grade this assignment (I am administrator in the course) or if I wrote this comment...
           var commentIsDeleteableByMe = rubricAssessment.assessment_type === "grading" || 
@@ -1442,8 +1471,8 @@ I18n.scoped('gradebook', function(I18n) {
   };
 
   //run the stuff that just attaches event handlers and dom stuff, but does not need the jsonData
-  $(EG.domReady);
+  $(document).ready(function() {
+    EG.domReady();
+  });
 
-})(jQuery, INST, scribd, rubricAssessment);
-
-})
+});

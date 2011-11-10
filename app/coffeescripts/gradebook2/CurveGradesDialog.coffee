@@ -1,5 +1,17 @@
-I18n.scoped 'gradebook2', (I18n) ->
-  class @CurveGradesDialog
+define [
+  'i18n'
+  'jquery'
+  'jst/CurveGradesDialog'
+  'jquery.disableWhileLoading'
+  'jquery.instructure_forms'
+  'jquery.instructure_jquery_patches'
+  'jquery.instructure_misc_plugins'
+  'vendor/jquery.ba-tinypubsub'
+], (I18n, $, curveGradesDialogTemplate) ->
+
+  I18n = I18n.scoped 'gradebook2'
+
+  class CurveGradesDialog
     constructor: (@assignment, @gradebook) ->
       locals =
         assignment: @assignment
@@ -7,7 +19,7 @@ I18n.scoped 'gradebook2', (I18n) ->
         middleScore: parseInt((@assignment.points_possible || 0) * 0.6)
         showOutOf: @assignment.points_possible >= 0
       # the dialog will be shared across all instantiation, so make it a prototype property
-      @$dialog = $(Template('CurveGradesDialog', locals))
+      @$dialog = $(curveGradesDialog(locals))
       @$dialog
         .formSubmit
           disableWhileLoading: true

@@ -16,7 +16,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-I18n.scoped('shared.aligned_outcomes', function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/, /\.disabled/ */,
+  'jquery.instructure_misc_plugins' /* showIf */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('shared.aligned_outcomes');
+
 $(document).ready(function() {
   var url = $("#aligned_outcomes .outcomes_url").attr('href');
   var updateOutcomesList = function(data) {

@@ -1,4 +1,10 @@
-$ = jQuery
+define [
+  'jquery'
+  'jquery.ui.menu.inputmenu'
+  'vendor/jquery.ui.popup-1.9'
+  'vendor/jquery.ui.button-1.9'
+], ($, _inputmenu, _popup, _button) ->
+
 $.fn.kyleMenu = (options) ->
   this.each ->
     opts = $.extend(true, {}, $.fn.kyleMenu.defaults, options)
@@ -53,3 +59,4 @@ $('.al-trigger').live 'click', (event)->
       buttonOpts:
         icons: { primary: null, secondary: null }
     }).next().popup('open')
+

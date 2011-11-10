@@ -267,6 +267,21 @@
 </div>
 <% js_block :i18n_scope => 'content_imports' do %>
 <script type="text/javascript">
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_date_and_time' /* date_field */,
+  'jquery.instructure_forms' /* formSubmit */,
+  'jquery.instructure_jquery_patches' /* /\.dialog/ */,
+  'jquery.instructure_misc_plugins' /* .dim, showIf */,
+  'jquery.rails_flash_notifications' /* flashError */,
+  'jqueryui/autocomplete' /* /\.autocomplete/ */,
+  'jqueryui/progressbar' /* /\.progressbar/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('content_imports');
+
 $(document).ready(function() {
   var $frame = $("<iframe id='copy_course_target' name='copy_course_target' src='about:blank'/>");
   $("body").append($frame.hide());
@@ -400,6 +415,7 @@ $(document).ready(function() {
       }
     });
   }
+});
 });
 </script>
 <% end %>

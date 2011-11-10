@@ -15,7 +15,18 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-I18n.scoped("prerequisites_lookup", function(I18n) {
+
+require([
+  'i18n',
+  'jquery',
+  'str/htmlEscape',
+  'context_modules',
+  'jquery.ajaxJSON',
+  'jquery.instructure_misc_helpers'
+], function(I18n, $, htmlEscape) {
+
+  I18n = I18n.scoped("prerequisites_lookup");
+
 $(document).ready(function() {
   var $link = $("#module_prerequisites_lookup_link");
   var url = $link.attr('href');
@@ -64,7 +75,7 @@ $(document).ready(function() {
     $link.after($ul);
     var header = I18n.t("headers.completion_prerequisites", "Completion Prerequisites");
     var sentence = I18n.beforeLabel("requirements_must_be_completed", "The following requirements need to be completed before this page will be unlocked");
-    $link.after("<br/><h3 style='margin-top: 15px;'>" + $.h(header) + "</h3>" + $.h(sentence));
+    $link.after("<br/><h3 style='margin-top: 15px;'>" + htmlEscape(header) + "</h3>" + htmlEsacpe(sentence));
     $link.prev("a").hide();
   }, function(data) {});
 });

@@ -1,5 +1,5 @@
 <%
-  jammit_js :rubric_assessment
+  js_bundle :rubric_assessment
   content_for :page_title, join_title(@assignment.title, @submission.user.name)
   add_crumb(t('crumbs.assignments', "Assignments"), context_url(@context, :context_assignments_url))
   add_crumb(@assignment.title, context_url(@context, :context_assignment_url, @assignment.id))
@@ -13,8 +13,27 @@
     }
   </style>
 <% end %>
+
+
 <% js_block :i18n_scope => 'submissions.show' do %>
-  <script>
+<script>
+require([
+  'INST' /* INST */,
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSONFiles, ajaxJSON */,
+  'jquery.instructure_date_and_time' /* parseFromISO */,
+  'jquery.instructure_jquery_patches' /* /\.scrollTop/ */,
+  'jquery.instructure_misc_plugins' /* fragmentChange, showIf */,
+  'jquery.loadingImg' /* loadingImg, loadingImage */,
+  'jquery.templateData' /* fillTemplateData, getTemplateData */,
+  'media_comments' /* mediaComment, mediaCommentThumbnail */,
+  'rubric_assessment' /* rubricAssessment */,
+  'vendor/jquery.scrollTo' /* /\.scrollTo/ */
+], function(INST, I18n, $) {
+
+  I18n = I18n.scoped('submissions.show');
+ 
   $("#content").addClass('padless');
   var fileIndex = 1;
   var submissionLoaded = function(data) {
@@ -266,7 +285,8 @@
       $.ajaxJSON(url, 'GET', {}, submissionLoaded);
     }, 500);
   };
-  </script>
+});
+</script>
 <% end %>
   <div style="padding: 0px 20px 3px;" class="submission_details">
     <div style="float: right;">

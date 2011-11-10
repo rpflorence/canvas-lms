@@ -251,6 +251,19 @@
 
 <% js_block :i18n_scope => 'content_imports.migrate_content_choose' do %>
 <script>
+require([
+  'i18n' /* I18n.t */,
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_date_and_time' /* parseFromISO, date_field */,
+  'jquery.instructure_misc_plugins' /* showIf */,
+  'jquery.rails_flash_notifications' /* flashMessage, flashError */,
+  'vendor/date' /* Date.parse */,
+  'jqueryui/progressbar' /* /\.progressbar/ */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('content_imports.migrate_content_choose');
+
 $(document).ready(function() {
   $(".date_field").date_field();
   var pendingPopulates = 0;
@@ -542,6 +555,7 @@ $(document).ready(function() {
     return true;
   });
 
+});
 });
 </script>
 <% end %>

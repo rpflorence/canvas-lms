@@ -39,4 +39,9 @@ namespace :js do
     end
   end
 
+  desc "optimize and build js for production"
+  task :build => [:generate] do
+    exec("node #{Rails.root}/node_modules/requirejs/bin/r.js -o #{Rails.root}/config/build.js")
+  end
+
 end

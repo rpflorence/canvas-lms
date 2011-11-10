@@ -39,6 +39,8 @@ module ApplicationHelper
   end
 
   def keyboard_navigation(keys)
+    # TODO: move this to JS, currently you have to know what shortcuts the JS has defined
+    # making it very likely this list will not reflect the key bindings
     content = "<ul class='navigation_list' tabindex='-1'>\n"
     keys.each do |hash|
       content += "  <li>\n"
@@ -298,7 +300,7 @@ module ApplicationHelper
       @included_i18n_scopes << scope
       js_translations_for(scope)
     end
-    contents.gsub!(/(<script[^>]*>)([^<].*?)(<\/script>)/m, "\\1\n#{translations}I18n.scoped(#{scope.inspect}, function(I18n){\n\\2\n});\n\\3")
+    contents.gsub!(/(<script[^>]*>)([^<].*?)(<\/script>)/m, "\\1\n#{translations}\n\\2\n\\3\n")
   end
 
   def js_translations_for(scope)
@@ -311,15 +313,14 @@ module ApplicationHelper
         hash[key] ||= {}
       }[last_key] = scoped_translations
       <<-TRANSLATIONS
-var I18n = I18n || {};
-(function($) {
+require(['i18n', 'jquery'], function(I18n, $) {
   var translations = #{translations.to_json};
   if (I18n.translations) {
     $.extend(true, I18n.translations, translations);
   } else {
     I18n.translations = translations;
   }
-})(jQuery);
+});
       TRANSLATIONS
     else
       ''
@@ -338,6 +339,49 @@ var I18n = I18n || {};
     Array(args).flatten.each do |bundle|
       jammit_css_bundles << bundle unless jammit_css_bundles.include? bundle
     end
+  end
+
+  # Determines the location from which to load JavaScript assets
+  #
+  # uses optimized:
+  #  * when ENV['USE_OPTIMIZED_JS'] is true
+  #  * or when ?optimized_js=true is present in the url. Run `rake js:build` to
+  #    build the optimized files
+  #
+  # uses non-optimized:
+  #   * when ENV['USE_OPTIMIZED_JS'] is false
+  #   * or when ?debug_assets=true is present in the url
+  def js_base_url
+    # this is a pretty horrible one-liner to facilitate the url params
+    use_non_optimized = !ENV['USE_OPTIMIZED_JS'] ? !params[:optimized_js] : params[:debug_assets]
+    use_non_optimized ? '/javascripts' : '/optimized'
+  end
+
+  def js_bundles; @js_bundles ||= []; end
+
+  # Use this method to place a bundle on the page, note that the end goal here
+  # is to only ever include one bundle per page load, so use this with care and
+  # ensure that the bundle you are requiring isn't simply a dependency of some
+  # other bundle.
+  #
+  # Bundles are defined in app/coffeescripts/bundles/<bundle>.coffee
+  #
+  # usage: js_bundle :gradebook2
+  #
+  # Only allows multiple arguments to support old usage of jammit_js
+  def js_bundle(*args)
+    output = Array(args).flatten.each do |bundle|
+      js_bundles << bundle unless js_bundles.include? bundle
+    end
+    raw output
+  end
+
+  # Returns a string of HTML for all registered js_bundles
+  def include_js_bundles
+    html = js_bundles.inject('') do |str, bundle|
+      str += "<script src='#{js_base_url}/compiled/bundles/#{bundle.to_s}.js'></script>\n"
+    end
+    raw html
   end
 
   def section_tabs

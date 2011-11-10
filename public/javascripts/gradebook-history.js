@@ -16,7 +16,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-I18n.scoped('gradebook', function(I18n) {
+require([
+  'i18n',
+  'jquery' /* $ */,
+  'jquery.ajaxJSON' /* ajaxJSON */,
+  'jquery.instructure_date_and_time' /* parseFromISO */
+], function(I18n, $) {
+
+  I18n = I18n.scoped('gradebook');
+
   var GradebookHistory = {
     init: function(){
       $('.assignment_header').click(function(event) {
