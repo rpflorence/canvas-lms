@@ -1,0 +1,1 @@
+(function(){define(function(){return function(a){return a.invoke=function(a){var b;return b=[].splice.call(arguments,0,1),(this[a]||this.noMethod).apply(this,arguments)},a.noMethod||(a.noMethod=function(){}),a}})}).call(this)

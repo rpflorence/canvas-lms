@@ -17,15 +17,13 @@
  */
 
 require([
-  'i18n',
+  'i18n!user_name',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.templateData' /* fillTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('user_name');
 
 $(document).ready(function() {
   $("#name_and_email").delegate('.edit_user_link', 'click', function(event) {

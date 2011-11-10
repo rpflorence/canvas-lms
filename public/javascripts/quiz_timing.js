@@ -17,12 +17,10 @@
  */
 
 define([
-  'i18n',
+  'i18n!quizzes.timing',
   'jquery' /* $ */,
   'vendor/date' /* Date.parse */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('quizzes.timing');
 
 var timing = {
   initialTime: new Date(),

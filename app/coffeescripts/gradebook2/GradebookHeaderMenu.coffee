@@ -1,10 +1,9 @@
 define [
-  'i18n'
+  'i18n!gradebook2'
   'jquery'
   'message_students'
   'compiled/AssignmentDetailsDialog'
   'compiled/AssignmentMuter'
-  'compiled/gradebook2/SetDefaultGradeDialog'
   'jst/gradebook2/GradebookHeaderMenu'
   'jst/re_upload_submissions_form'
   'jquery.instructure_forms'
@@ -12,9 +11,7 @@ define [
   'jquery.instructure_misc_helpers'
   'jquery.instructure_misc_plugins'
   'compiled/jquery.kylemenu'
-], (I18n, $, messageStudents, AssignmentDetailsDialog, AssignmentMuter, SetDefaultGradeDialog, gradebookHeaderMenuTemplate, re_upload_submissions_form) ->
-
-  I18n = I18n.scoped 'gradebook2'
+], (I18n, $, messageStudents, AssignmentDetailsDialog, AssignmentMuter, gradebookHeaderMenuTemplate, re_upload_submissions_form) ->
 
   class GradebookHeaderMenu
     constructor: (@assignment, @$trigger, @gradebook) ->

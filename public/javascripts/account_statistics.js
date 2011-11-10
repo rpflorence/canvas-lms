@@ -17,14 +17,12 @@
  */
 
 require([
-  'i18n',
+  'i18n!accounts.statistics',
   'jquery', // $
   'jquery.ajaxJSON', // ajaxJSON
   'jquery.instructure_jquery_patches', // /\.dialog/
   'jquery.instructure_misc_helpers' // replaceTags
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('accounts.statistics');
 
   $(document).ready(function() {
     $(".over_time_link").live('click', function(event) {

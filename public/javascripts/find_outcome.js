@@ -1,13 +1,11 @@
 require([
-  'i18n',
+  'i18n!find_outcome',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_helpers' /* truncateText */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('find_outcome');
 
 var find_outcome = (function() {
   return {

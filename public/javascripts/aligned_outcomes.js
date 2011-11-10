@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!shared.aligned_outcomes',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/, /\.disabled/ */,
@@ -25,8 +25,6 @@ require([
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('shared.aligned_outcomes');
 
 $(document).ready(function() {
   var url = $("#aligned_outcomes .outcomes_url").attr('href');

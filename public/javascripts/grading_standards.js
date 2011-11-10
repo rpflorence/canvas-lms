@@ -1,5 +1,5 @@
 require([
-  'i18n',
+  'i18n!grading_standards',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* fillFormData, getFormData */,
@@ -10,7 +10,6 @@ require([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('grading_standards');
   $(document).ready(function() {
     $(".add_standard_link").click(function(event) {
       event.preventDefault();

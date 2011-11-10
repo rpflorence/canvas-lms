@@ -98,13 +98,11 @@ ldap_tests << OpenStruct.new(
 <% js_block :i18n_scope => 'accounts' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!accounts',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* getJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('accounts');
 
   function testLDAP() {
     clearTestLDAP();

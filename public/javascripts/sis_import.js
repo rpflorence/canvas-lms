@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!sis_import',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_misc_plugins' /* showIf, disableIf */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('sis_import');
 
 $(document).ready(function(event) {
   var state = 'nothing';

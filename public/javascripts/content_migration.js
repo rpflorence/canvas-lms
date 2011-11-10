@@ -17,13 +17,11 @@
  */
 
 require([
-  'i18n',
+  'i18n!content_imports',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, formErrors */,
   'jquery.instructure_misc_plugins' /* ifExists, showIf */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('content_imports');
 
 $(function(){
   var $config_options = $("#config_options"),

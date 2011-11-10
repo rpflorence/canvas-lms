@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!quizzes.moderate',
   'jquery' /* $ */,
   'quiz_timing',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -30,8 +30,6 @@ require([
   'jquery.templateData' /* fillTemplateData */,
   'vendor/date' /* Date.parse */
 ], function(I18n, $, timing) {
-
-  I18n = I18n.scoped('quizzes.moderate');
 
   window.moderation = {
     updateTimes: function() {

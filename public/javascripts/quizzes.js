@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!quizzes',
   'jquery' /* $ */,
   'calcCmd',
   'str/htmlEscape',
@@ -39,8 +39,6 @@ require([
   'jqueryui/sortable' /* /\.sortable/ */,
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(I18n, $, calcCmd, htmlEscape, pluralize, wikiSidebar) {
-
-  I18n = I18n.scoped('quizzes');
 
   // TODO: refactor this... it's not going to be horrible, but it will
   // take a little bit of work.  I just wrapped it in a closure for now

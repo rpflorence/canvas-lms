@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{collaborations:{errors:{no_name:"Por favor ingrese un nombre para este documento"}}}}})

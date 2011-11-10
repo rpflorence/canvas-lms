@@ -17,14 +17,13 @@
  */
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!content_locks',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.instructure_date_and_time' /* parseFromISO */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */
 ], function(INST, I18n, $, htmlEscape) {
 
-  I18n = I18n.scoped('content_locks');
   INST.lockExplanation = function(data, type) {
     // Any additions to this function should also be added to similar logic in ApplicationController.rb
     if(data.lock_at) {

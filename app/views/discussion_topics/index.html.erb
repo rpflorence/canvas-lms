@@ -38,12 +38,10 @@
 <% js_block :i18n_scope => 'discussion_topics' do %>
   <script type="text/javascript">
   require([
-    'i18n' /* I18n.t */,
+    'i18n!discussion_topics',
     'jquery' /* $ */,
     'vendor/jquery.pageless' /* pageless */
   ], function(I18n, $) {
-
-    I18n = I18n.scoped('discussion_topics');
 
     $(function(){
       $('#topic_list').pageless({

@@ -1,11 +1,9 @@
 define([
-  'i18n',
+  'i18n!calculator.command',
   'jquery' /* $ */
 ], function(I18n, $) {
 
   var calcCmd = {};
-
-  I18n = I18n.scoped('calculator.command');
 
   (function() {
     var methods = {};

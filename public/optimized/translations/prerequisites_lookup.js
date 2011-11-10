@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{prerequisites_lookup:{labels:{requirements_must_be_completed:"Los siguientes requerimientos necesitan estar completados antes de que esta página sea desbloqueada"},headers:{completion_prerequisites:"Prerequisitos de Compleción"}}}}})

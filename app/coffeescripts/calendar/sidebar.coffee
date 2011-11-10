@@ -1,12 +1,11 @@
-define 'compiled/calendar/sidebar', [
-  'i18n'
+define [
+  'i18n!calendar'
   'jst/calendar/contextList'
   'jst/calendar/undatedEvents'
   'compiled/calendar/commonEventFactory'
   'compiled/calendar/EditEventDetailsDialog'
   'compiled/calendar/EventDataSource'
 ], (I18n, contextListTemplate, undatedEventsTemplate, commonEventFactory, EditEventDetailsDialog, EventDataSource) ->
-  I18n = I18n.scoped 'calendar'
 
   class VisibleContextManager
     constructor: (contexts, @$holder) ->

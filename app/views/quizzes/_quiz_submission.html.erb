@@ -78,11 +78,9 @@
 <% js_block :i18n_scope => 'quizzes.quiz_submission' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!quizzes.quiz_submission',
   'jquery' /* $ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('quizzes.quiz_submission');
 
 $(document).ready(function() {
   $("#questions.assessment_results .question").hover(function() {

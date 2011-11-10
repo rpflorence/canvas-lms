@@ -2,14 +2,12 @@
 <script>
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!submissions',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('submissions');
 
   INST.downloadSubmissions = function(url) {
     var cancelled = false;

@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!calculator',
   'jquery' /* $ */,
   'calcCmd',
   'str/htmlEscape',
@@ -26,7 +26,6 @@ require([
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(I18n, $, calcCmd, htmlEscape) {
 
-  I18n = I18n.scoped('calculator');
   var generateFinds = function($table) {
     var finds = {};
     finds.formula_rows = $table.find(".formula_row");

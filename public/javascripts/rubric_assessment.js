@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 define([
-  'i18n',
+  'i18n!rubric_assessment',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* fillFormData */,
   'jquery.instructure_jquery_patches' /* /\.dialog/, /\.scrollTop/, windowScrollTop */,
@@ -25,8 +25,6 @@ define([
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('rubric_assessment');
 
 // TODO: stop managing this in the view and get it out of the global scope submissions/show.html.erb
 window.rubricAssessment = {

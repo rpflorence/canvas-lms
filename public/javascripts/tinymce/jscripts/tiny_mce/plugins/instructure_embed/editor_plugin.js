@@ -17,15 +17,13 @@
  */
 
 require([
-  'i18n',
+  'i18n!tinymce',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_helpers' /* /\$\.h/, findImageForService */,
   'tinymce.editor_box' /* editorBox */
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('#tinymce');
 
   var $box, $editor, $userURL, $altText, $actions, $flickrLink;
 

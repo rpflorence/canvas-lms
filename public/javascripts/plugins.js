@@ -1,10 +1,9 @@
 require([
-  'i18n',
+  'i18n!plugins',
   'jquery' /* $ */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('plugins');
   $("form.edit_plugin_setting").live('submit', function() {
     $(this).find("button").attr('disabled', true).filter(".save_button").text(I18n.t('buttons.saving', "Saving..."));
   });

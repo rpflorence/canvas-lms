@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{message_students:{buttons:{send_message_failed:"Envío del Mensaje Falló, intente de nuevo",sending_message:"Enviando Mensaje...",send_message:"Enviar Mensaje"},message_student:"Enviar Mensaje a Estudiantes para %{course_name}",send_message:"Enviar el Mensaje"}}}})

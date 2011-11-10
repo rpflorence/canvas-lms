@@ -5,7 +5,7 @@
 # jquery disableWhileLoading
 
 define 'compiled/helpDialog', [
-  'i18n'
+  'i18n!HelpDialog'
   'jst/helpDialog'
   'INST'
 
@@ -13,7 +13,6 @@ define 'compiled/helpDialog', [
   'jquery.instructure_jquery_patches' # dialog
   'jquery.disableWhileLoading'
 ], (I18n, helpDialogTemplate, INST) ->
-  I18n = I18n.scoped 'HelpDialog'
 
   helpDialog =
     defaultLinks: [

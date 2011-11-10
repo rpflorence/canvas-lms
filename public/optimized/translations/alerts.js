@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{alerts:{errors:{threshold_should_be_numeric:"Este debería ser un número positivo",recipients_required:"Al menos un recipiente es necesario",criteria_required:"Al menos un activador de alarma es necesario"}}}}})

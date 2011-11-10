@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!learning_outcome',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO */,
@@ -31,7 +31,6 @@ require([
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(INST, I18n, $) {
 
-  I18n = I18n.scoped("learning_outcome");
   $(document).ready(function() {
     $('#outcome_results').pageless({
       totalPages: parseInt($("#outcome_results_total_pages").text(), 10) || 1,

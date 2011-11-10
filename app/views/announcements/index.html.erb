@@ -117,7 +117,7 @@
 <% js_block :i18n_scope => 'announcements' do %>
   <script type="text/javascript">
   require([
-    'i18n' /* I18n.t */,
+    'i18n!announcements',
     'jquery' /* $ */,
     'jquery.instructure_forms' /* formSubmit */,
     'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
@@ -125,8 +125,6 @@
     'jquery.templateData' /* fillTemplateData */,
     'vendor/jquery.pageless' /* pageless */
   ], function(I18n, $) {
-
-    I18n = I18n.scoped('announcements');
 
     $(document).ready(function() {
       $("#external_feed_add_header_match").change(function() {

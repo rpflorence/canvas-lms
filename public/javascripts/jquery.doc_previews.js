@@ -17,7 +17,7 @@
  */
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!instructure',
   'jquery' /* jQuery, $ */,
   'vendor/scribd.view' /* scribd */,
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_misc_helpers' /* uniqueId, /\$\.uniq/, capitalize */,
   'jquery.loadingImg' /* loadingImage */
 ], function(INST, I18n, $, scribd) {
-
-  I18n = I18n.scoped('instructure');
 
   // first element in array is if scribd can handle it, second is if google can.
   var previewableMimeTypes = {

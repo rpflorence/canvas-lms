@@ -1,5 +1,4 @@
-define 'compiled/calendar/MiniCalendar', ['i18n'], (I18n) ->
-  I18n = I18n.scoped 'calendar'
+define ['i18n!calendar'], (I18n) ->
   
   class MiniCalendar
     constructor: (selector, @mainCalendar) ->

@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{question_banks:{delete_question_bank_prompt:"¿Seguro que quiere borrar este grupo de preguntas?"}}}})

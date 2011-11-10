@@ -1,5 +1,5 @@
 define [
-  'i18n'
+  'i18n!AssignmentDetailsDialog'
   'jquery'
   'jst/SubmissionDetailsDialog'
   'jquery.ajaxJSON'
@@ -9,8 +9,6 @@ define [
   'jquery.instructure_misc_plugins'
   'vendor/jquery.scrollTo'
 ], (I18n, $, submissionDetailsDialog) ->
-
-  I18n = I18n.scoped 'AssignmentDetailsDialog'
 
   class SubmissionDetailsDialog
     constructor: (@assignment, @student, @options) ->

@@ -1,5 +1,5 @@
 define [
-  'i18n'
+  'i18n!AssignmentMuter'
   'jquery'
   'jst/mute_dialog'
   'jquery.ajaxJSON'
@@ -7,8 +7,6 @@ define [
   'jquery.instructure_jquery_patches' # dialog
   'vendor/jquery.ba-tinypubsub'
 ], (I18n, $, mute_dialog_template) ->
-
-  I18n = I18n.scoped 'AssignmentMuter'
 
   class
     constructor: (@$link, @assignment, @url) ->

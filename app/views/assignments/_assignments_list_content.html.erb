@@ -38,14 +38,12 @@
 <% js_block :i18n_scope => 'assignments' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!assignments',
   'jquery' /* $ */,
   'jquery.instructure_misc_plugins' /* showIf */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'vendor/date' /* Date.parse */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('assignments');
 
 window.submissionsHash = <%= raw @submissions_hash.to_json %>;
 window.managedAssignments = null;

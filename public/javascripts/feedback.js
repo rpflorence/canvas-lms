@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!feedback',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $, htmlEscape) {
-
-I18n = I18n.scoped('feedback');
 
 $(document).ready(function() {
   var dialogOpened = false;

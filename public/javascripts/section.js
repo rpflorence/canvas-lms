@@ -1,5 +1,5 @@
 require([
-  'i18n',
+  'i18n!section',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* time_field, datetime_field */,
@@ -12,8 +12,6 @@ require([
   'jquery.templateData' /* fillTemplateData */,
   'jqueryui/autocomplete' /* /\.autocomplete/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('section');
 
 $(document).ready(function() {
   var $edit_section_form = $("#edit_section_form"),

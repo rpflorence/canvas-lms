@@ -19,12 +19,10 @@
 //create a global object "INST" that we will have be Instructure's namespace.
 define([
   'INST' /* INST */,
-  'i18n',
+  'i18n!instructure',
   'jquery' /* $ */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('instructure');
 
   // add ability to handle css3 opacity transitions on show or hide
   // if you want to use this just add the class 'use-css-transitions-for-show-hide' to an element.

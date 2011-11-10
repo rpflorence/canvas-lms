@@ -17,13 +17,12 @@
 #
 
 require [
-  'i18n'
+  'i18n!license_help'
   'jquery'
   'jquery.instructure_jquery_patches'
   'jquery.instructure_misc_plugins'
   'jquery.loadingImg'
 ], (I18n, $) ->
-  I18n = I18n.scoped "license_help"
 
   licenceTypes = ["by", "nc", "nd", "sa"]
   toggleButton = (el, check) -> $(el).toggleClass('selected', !!check).attr('aria-checked', !!check)

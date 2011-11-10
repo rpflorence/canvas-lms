@@ -21,7 +21,7 @@
 <% js_block :i18n_scope => 'assignments.perr_reviews' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!assignments.peer_reviews',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO */,
@@ -31,8 +31,6 @@ require([
   'jquery.loadingImg' /* loadingImage */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('assignments.peer_reviews');
 
   $(document).ready(function() {
     $(".peer_review").hover(function() {

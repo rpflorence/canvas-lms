@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{context:{inbox:{buttons:{mark_all_as_read:"Marcar Todos los Mensajes como Leídos"},errors:{mark_as_read_failed:"No se pudo marcar como leído, intente de nuevo"},status:{marking_all_as_read:"Marcando Todo como Leído..."}}}}}})

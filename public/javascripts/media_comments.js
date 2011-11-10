@@ -17,7 +17,7 @@
  */
 define([
   'INST' /* INST */,
-  'i18n',
+  'i18n!media_comments',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -27,8 +27,6 @@ define([
   'jqueryui/progressbar' /* /\.progressbar/ */,
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(INST, I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('media_comments');
 
   (function($, INST){
     var yourVersion = null;

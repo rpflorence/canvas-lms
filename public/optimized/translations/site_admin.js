@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{site_admin:{titles:{value_over_time:"%{value} en el tiempo"},links:{over_time:"en el tiempo"},status:{loading:"cargando..."},columns:{date:"Fecha",value:"Valor"}}}}})

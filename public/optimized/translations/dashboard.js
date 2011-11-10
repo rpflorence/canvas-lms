@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{dashboard:{links:{show_notifications:"haga click para mostrar estas notificaciones en el stream"}}}}})

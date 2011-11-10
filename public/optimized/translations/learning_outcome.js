@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{learning_outcome:{align_item:"Asignar Elemento",loading_more_results:"Cargando más resultados",align_to_outcome:"Asignar Elemento a este Resultado",this_outcome:"este Resultado",remove_outcome_alignment:"¿Seguro que quiere remover esta tarea?"}}}})

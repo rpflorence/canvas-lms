@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!calendars',
   'jquery' /* $ */,
   'calendar_move' /* calendarMonths */,
   'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
@@ -40,7 +40,6 @@ require([
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(INST, I18n, $, calendarMonths) {
 
-  I18n = I18n.scoped('calendars');
   window.calendar = {
     viewItem: function(context_string, item_id, item_type) {
     },

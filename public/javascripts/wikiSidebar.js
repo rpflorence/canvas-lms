@@ -17,7 +17,7 @@
  */
 
 define([
-  'i18n',
+  'i18n!wiki.sidebar',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -34,8 +34,6 @@ define([
   'jqueryui/tabs' /* /\.tabs/ */,
   'vendor/scribd.view' /* scribd */
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('wiki.sidebar');
 
   var $editor_tabs,
       $tree1,

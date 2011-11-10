@@ -1,9 +1,7 @@
-define 'compiled/calendar/CommonEvent.Assignment', [
-  'i18n',
+define [
+  'i18n!calendar',
   'compiled/calendar/CommonEvent'
 ], (I18n, CommonEvent) ->
-
-  I18n = I18n.scoped 'calendar'
 
   deleteConfirmation = I18n.t('prompts.delete_assignment', "Are you sure you want to delete this assignment?")
 

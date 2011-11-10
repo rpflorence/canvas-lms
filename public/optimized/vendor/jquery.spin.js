@@ -1,0 +1,1 @@
+define(["jquery","vendor/spin"],function(a,b){a.fn.spin=function(c){return this.each(function(){var d=a(this),e=d.data();e.spinner&&(e.spinner.stop(),delete e.spinner);if(c!==!1){var f=a.css(this,"display");d.show(),e.spinner=(new b(a.extend({color:d.css("color")},c))).spin(this),d.css("display",f)}})}})

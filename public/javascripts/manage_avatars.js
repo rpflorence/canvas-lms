@@ -17,13 +17,11 @@
  */
 
 require([
-  'i18n',
+  'i18n!manage_avatars',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('manage_avatars');
 
 $(document).ready(function() {
   $(".update_avatar_link").live('click', function(event) {

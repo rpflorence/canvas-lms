@@ -1,5 +1,5 @@
 require([
-  'i18n',
+  'i18n!link_enrollment',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit */,
@@ -8,7 +8,6 @@ require([
   'jquery.templateData' /* fillTemplateData */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('link_enrollment');
   window.link_enrollment = (function() {
     return {
       choose: function(user_name, enrollment_id, current_user_id, callback) {

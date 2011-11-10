@@ -21,14 +21,12 @@
 <% js_block :i18n_scope => 'shared.add_assignment_group' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!shared.add_assignment_group',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, formErrors */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('shared.add_assignment_group');
 
 window.attachAddAssignmentGroup = function($select, url) {
   var $group = $select;

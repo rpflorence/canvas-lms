@@ -1,13 +1,11 @@
 require([
-  'i18n',
+  'i18n!external_tools',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, fillFormData */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_plugins' /* confirmDelete, showIf */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('external_tools');
 
 $(document).ready(function() {
   var $dialog = $("#external_tools_dialog");

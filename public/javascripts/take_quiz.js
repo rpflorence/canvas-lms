@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!quizzes.take_quiz',
   'jquery' /* $ */,
   'quiz_timing',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -28,8 +28,6 @@ require([
   'tinymce.editor_box' /* editorBox */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $, timing) {
-
-  I18n = I18n.scoped('quizzes.take_quiz');
 
   var lastAnswerSelected = null;
   var quizSubmission = (function() {

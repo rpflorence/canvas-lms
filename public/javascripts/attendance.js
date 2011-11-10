@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!attendance',
   'jquery' /* $ */,
   'datagrid',
   'str/htmlEscape',
@@ -32,8 +32,6 @@ require([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
   'jqueryui/position' /* /\.position\(/ */
 ], function(I18n, $, datagrid, htmlEscape) {
-
-  I18n = I18n.scoped('attendance');
 
   var attendance = {
     saveKeyIndex: 0,

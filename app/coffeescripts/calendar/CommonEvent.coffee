@@ -1,8 +1,6 @@
-define 'compiled/calendar/CommonEvent', [
-  'i18n'
+define [
+  'i18n!calendar'
 ], (I18n) ->
-
-  I18n = I18n.scoped 'calendar'
 
   class
     constructor: (data, contextInfo) ->

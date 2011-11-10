@@ -47,13 +47,11 @@
 <% js_block :i18n_scope => 'rubrics.index' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!rubrics.index',
   'jquery' /* $ */,
   'find_outcome',
   'jquery.instructure_misc_plugins' /* confirmDelete */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('rubrics.index');
 
   $(document).ready(function() {
     $("#rubrics ul .delete_rubric_link").click(function(event) {

@@ -1,13 +1,11 @@
-define 'compiled/calendar/EditEventDetailsDialog', [
-  'i18n'
+define [
+  'i18n!calendar'
   'compiled/calendar/CommonEvent'
   'compiled/calendar/EditCalendarEventDetails'
   'compiled/calendar/EditAssignmentDetails'
   'compiled/calendar/EditAppointmentGroupDetails'
   'jst/calendar/editEvent'
 ], (I18n, CommonEvent, EditCalendarEventDetails, EditAssignmentDetails, EditAppointmentGroupDetails, editEventTemplate) ->
-
-  I18n = I18n.scoped 'calendar'
 
   dialog = $('<div id="edit_event"><div /></div>').appendTo('body').dialog
     autoOpen: false

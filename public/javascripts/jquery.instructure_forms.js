@@ -17,7 +17,7 @@
  */
 define([
   'INST' /* INST */,
-  'i18n',
+  'i18n!instructure',
   'jquery' /* jQuery, $ */,
   'jquery.ajaxJSON' /* ajaxJSONPreparedFiles, ajaxJSON */,
   'jquery.disableWhileLoading' /* disableWhileLoading */,
@@ -30,8 +30,6 @@ define([
   'tinymce.editor_box' /* editorBox */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('instructure');
 
   // Intercepts the default form submission process.  Uses the form tag's
   // current action and method attributes to know where to submit to.

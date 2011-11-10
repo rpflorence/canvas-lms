@@ -157,13 +157,11 @@
 <% js_block :i18n_scope => 'pseudonyms.registration_confirmation_form' do %>
   <script>
   require([
-    'i18n' /* I18n.t */,
+    'i18n!pseudonyms.regisration_confirmation',
     'jquery' /* $ */,
     'jquery.instructure_forms' /* getFormData, formErrors */,
     'jqueryui/sortable' /* /\.sortable/ */
   ], function(I18n, $) {
-
-    I18n = I18n.scoped('pseudonyms.regisration_confirmation');
 
     $(function() {
       var $registration_form = $('#registration_confirmation_form');

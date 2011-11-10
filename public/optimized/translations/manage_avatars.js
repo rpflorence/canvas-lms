@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{manage_avatars:{messages:{updating:"Actualizando..."},errors:{update_failed:"Actualización falló, intente de nuevo"},prompts:{lock_avatar:"Bloquear esta imagen la aprobará y ayudará a prevenir que el usuario la actualice. ¿Desea continuar?",delete_avatar:"¿Seguro que quiere borrar la imagen de perfil de este usuario?"}}}}})

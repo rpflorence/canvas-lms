@@ -17,12 +17,11 @@
  */
 
 require([
-  'i18n',
+  'i18n!users',
   'jquery' /* $ */,
   'jquery.instructure_misc_plugins' /* confirmDelete */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('users');
 $(function(){
   $(".courses .course,.groups .group").bind('focus mouseover', function(event) {
     $(this).find(".info").addClass('info_hover');

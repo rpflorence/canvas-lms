@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!collaborations',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* fillFormData, getFormData, errorBox */,
@@ -25,8 +25,6 @@ require([
   'jquery.templateData' /* getTemplateData */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('collaborations');
 
   function removeCollaborationDiv(div) {
     if($("#collaborations .collaboration:visible").length <= 1) {

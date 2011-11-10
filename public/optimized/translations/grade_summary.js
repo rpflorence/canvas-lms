@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{gradebook:{student_mute_notification:"El instructor está trabajando en las calificaciones",titles:{hypothetical_score:'Esta es una calificación "que pasa si"',dropped_assignment_no_total:"Esta tarea no será considerada en el cálculo total"},click_to_change:"Haga click para probar una calificación diferente",percent:"Porcentaje"}}}})

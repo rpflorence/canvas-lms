@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!quizzes.index',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formErrors */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_misc_plugins' /* confirmDelete */,
   'jquery.templateData' /* getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('quizzes.index');
 
 $(document).ready(function() {
   $(".delete_quiz_link").click(function(event) {

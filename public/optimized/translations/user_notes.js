@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{user_notes:{confirms:{delete_journal_entry:"¿Seguro que quiere borrar esta contribución a la revista?"}}}}})

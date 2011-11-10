@@ -17,15 +17,13 @@
  */
 
 require([
-  'i18n',
+  'i18n!prerequisites_lookup',
   'jquery',
   'str/htmlEscape',
   'context_modules',
   'jquery.ajaxJSON',
   'jquery.instructure_misc_helpers'
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped("prerequisites_lookup");
 
 $(document).ready(function() {
   var $link = $("#module_prerequisites_lookup_link");

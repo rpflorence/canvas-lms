@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!context_modules',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO, time_field, datetime_field */,
@@ -33,8 +33,6 @@ require([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('context_modules');
 
   // TODO: AMD don't export global, use as module
   window.modules = (function() {

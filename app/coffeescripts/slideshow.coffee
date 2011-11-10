@@ -1,12 +1,10 @@
 define [
-  'i18n'
+  'i18n!slideshow'
   'jquery'
   'str/htmlEscape'
   'jquery.instructure_jquery_patches'
   'jquery.instructure_misc_helpers'
 ], (I18n, $, htmlEscape) ->
-
-  I18n = I18n.scoped 'slideshow'
 
   class Slide
     constructor: (title, slideshow) ->

@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!alerts',
   'jquery', // $
   'jquery.ajaxJSON', // ajaxJSON
   'jquery.instructure_forms', // validateForm, formErrors, errorBox
@@ -25,8 +25,6 @@ require([
   'vendor/jquery.ba-tinypubsub', // /\.publish/
   'jqueryui/button' // /\.button/
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('alerts');
 
   $(function () {
     var $list = $('.alerts_list');

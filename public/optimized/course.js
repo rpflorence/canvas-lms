@@ -1,0 +1,1 @@
+require(["i18n","jquery"],function(a,b){a=a.scoped("courses"),b(document).ready(function(){b(".reject_button").click(function(b){var c=confirm(a.t("confirm_reject_invitation","Are you sure you want to reject the invitation to participate in this course?"));c||(b.preventDefault(),b.stopPropagation())})})})

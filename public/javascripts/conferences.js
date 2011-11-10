@@ -1,6 +1,6 @@
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!conferences',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit, fillFormData */,
@@ -12,8 +12,6 @@ require([
   'jquery.rails_flash_notifications' /* flashError */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('conferences');
 
   $(document).ready(function() {
     $("#add_conference_form .cancel_button").click(function() {

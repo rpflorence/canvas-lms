@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!gradebook',
   'jquery' /* $ */,
   'datagrid',
   'compiled/grade_calculator',
@@ -40,8 +40,6 @@ require([
   'jqueryui/position' /* /\.position\(/ */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(INST, I18n, $, datagrid, GradeCalculator, htmlEscape) {
-
-  I18n = I18n.scoped('gradebook');
 
   var grading_scheme = window.grading_scheme;
   var readOnlyGradebook = window.readOnlyGradebook;

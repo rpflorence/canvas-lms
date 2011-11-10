@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!files',
   'jquery' /* jQuery, $ */,
   'str/htmlEscape',
   'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
@@ -42,7 +42,6 @@ require([
   'vendor/scribd.view' /* scribd */
 ], function(INST, I18n, $, htmlEscape) {
 
-  I18n = I18n.scoped('files');
   var files = {};
   var fileStructureData = [];
   (function() {

@@ -1,5 +1,5 @@
 define [
-  'i18n'
+  'i18n!gradebook2'
   'jquery'
   'jst/CurveGradesDialog'
   'jquery.disableWhileLoading'
@@ -8,8 +8,6 @@ define [
   'jquery.instructure_misc_plugins'
   'vendor/jquery.ba-tinypubsub'
 ], (I18n, $, curveGradesDialogTemplate) ->
-
-  I18n = I18n.scoped 'gradebook2'
 
   class CurveGradesDialog
     constructor: (@assignment, @gradebook) ->

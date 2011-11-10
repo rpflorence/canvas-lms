@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!user_lists',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* getFormData */,
@@ -30,8 +30,6 @@ require([
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('user_lists');
 
   var $user_lists_processed_person_template = $("#user_lists_processed_person_template").removeAttr('id').detach(),
       $user_list_no_valid_users = $("#user_list_no_valid_users"),

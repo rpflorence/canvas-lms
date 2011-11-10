@@ -18,7 +18,7 @@
 
 define([
   'INST' /* INST */,
-  'i18n',
+  'i18n!instructure',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -28,8 +28,6 @@ define([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
   'vendor/jquery.store' /* /\$\.store/ */
 ], function(INST, I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('instructure');
 
   // Generate a unique integer id (unique within the entire window).
   // Useful for temporary DOM ids.

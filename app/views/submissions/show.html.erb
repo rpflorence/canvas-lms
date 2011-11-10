@@ -19,7 +19,7 @@
 <script>
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!submissions.show',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSONFiles, ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO */,
@@ -31,8 +31,6 @@ require([
   'rubric_assessment' /* rubricAssessment */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('submissions.show');
  
   $("#content").addClass('padless');
   var fileIndex = 1;

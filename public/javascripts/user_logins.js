@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!user_logins',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, fillFormData, formErrors */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
@@ -25,7 +25,6 @@ require([
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('user_logins');
 $(document).ready(function() {
   var $form = $("#edit_pseudonym_form");
   var passwordable_account_ids = $("#passwordable_account_ids").text().split(",");

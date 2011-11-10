@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{gradebook:{errors:{select_an_option:"Por favor seleccione una opción"},student:"Estudiante"}}}})

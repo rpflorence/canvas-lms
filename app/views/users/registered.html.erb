@@ -8,13 +8,11 @@
 <script type="text/javascript">
 // file: app/views/users/registered.html.erb
 require([
-  'i18n' /* I18n.t */,
+  'i18n!users.registered',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('users.registered');
 
 $(document).ready(function() {
   var runAjax = true;

@@ -159,13 +159,11 @@ course will see this page first.  You can change that from [the course home page
   <% js_block :i18n_scope => 'wiki_pages' do %>
     <script type="text/javascript">
     require([
-      'i18n',
+      'i18n!wiki_pages',
       'jquery' /* $ */,
       'wiki',
       'vendor/jquery.pageless' /* pageless */
     ], function(I18n, $, wikiPage) {
-
-      I18n = I18n.scoped('wiki_pages');
 
       $(function(){
         $('#wiki_page_comments').pageless({

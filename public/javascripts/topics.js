@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!topics',
   'jquery' /* $ */,
   'wikiSidebar',
   'ajax_errors' /* INST.log_error */,
@@ -35,8 +35,6 @@ require([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(INST, I18n, $, wikiSidebar) {
-
-  I18n = I18n.scoped('topics');
 
   // TODO AMD: get this stuff out of the global ns and the views
   var attachAddAssignment = window.attachAddAssignment;

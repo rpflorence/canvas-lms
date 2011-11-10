@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{context:{inbox:{buttons:{mark_all_as_read:"Marcar Todos los Mensajes como Leídos"}}}}}})

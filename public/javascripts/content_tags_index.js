@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!content_tags',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, fillFormData */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
@@ -27,8 +27,6 @@ require([
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */,
   'jqueryui/accordion' /* /\.accordion\(/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('content_tags');
 
   var contentTags = {
     currentHover: null,

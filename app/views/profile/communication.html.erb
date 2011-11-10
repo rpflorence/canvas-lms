@@ -6,7 +6,7 @@
 <% js_block :i18n_scope => 'profile.communication' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!profile.communication',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* getFormData */,
@@ -15,8 +15,6 @@ require([
   'jquery.rails_flash_notifications' /* flashMessage, flashError */,
   'jquery.templateData' /* getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('profile.communication');
 
 $(document).ready(function() {
   $(".notification_preferences .frequency").click(function(event) {

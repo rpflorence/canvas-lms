@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!assignments',
   'jquery' /* $ */,
   'str/htmlEscape',
   'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
@@ -37,8 +37,6 @@ require([
   'jqueryui/droppable' /* /\.droppable/ */,
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(INST, I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('assignments');
 
   var defaultShowDateOptions = false;
   function hideAssignmentForm() {

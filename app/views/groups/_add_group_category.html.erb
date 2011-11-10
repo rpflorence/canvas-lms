@@ -1,11 +1,10 @@
 <% js_block :i18n_scope => 'groups' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!groups',
   'jquery' /* $ */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */
 ], function(I18n, $) {
-  I18n = I18n.scoped('groups');
 
   window.addGroupCategory = function(callback) {
     $("#add_category_form").dialog('close').dialog({

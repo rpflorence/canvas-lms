@@ -508,7 +508,7 @@ HEREDOC
 <script>
 require([
   'INST' /* INST */,
-  'i18n' /* I18n.t */,
+  'i18n!files',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* time_field, datetime_field */,
@@ -516,8 +516,6 @@ require([
   'jqueryui/progressbar' /* /\.progressbar/ */,
   'vendor/scribd.view' /* scribd */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('files');
 
 window.contexts = <%= raw @contexts.to_json(:permissions => {:user => @current_user, :policies => [:create_collaborations,:manage_files,:update,:manage_grades,:read_roster]}, :methods => :asset_string, :include_root => false) %>;
 

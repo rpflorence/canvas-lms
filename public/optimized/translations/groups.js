@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{groups:{buttons:{create_group:"Crear Grupo"},messages:{creating_group:"Creando Grupo..."},errors:{creating_group_failed:"Creación del Grupo no se pudo Completar"}}}}})

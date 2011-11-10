@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!instructure',
   'jquery' /* $ */,
   'str/htmlEscape',
   'wikiSidebar',
@@ -48,9 +48,6 @@ require([
   'jqueryui/tabs' /* /\.tabs/ */,
   'vendor/scribd.view' /* scribd */
 ], function(INST, I18n, $, htmlEscape, wikiSidebar) {
-
-
-  I18n = I18n.scoped('instructure');
 
   // sends timing info of XHRs to google analytics so we can track ajax speed.
   // (ONLY for ajax requests that took longer than a second)

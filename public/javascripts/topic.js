@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!topics',
   'jquery' /* $ */,
   'wikiSidebar',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -32,8 +32,6 @@ require([
   'tinymce.editor_box' /* editorBox */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $, wikiSidebar) {
-
-  I18n = I18n.scoped('topics');
 
   function editEntry($entry, params) {
     $("#add_entry_bottom").hide();

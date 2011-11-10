@@ -23,13 +23,11 @@
 <% js_block :i18n_scope => 'page_views._table' do %>
   <script type="text/javascript">
   require([
-    'i18n' /* I18n.t */,
+    'i18n!page_views._table',
     'jquery' /* $ */,
     'jquery.instructure_misc_helpers' /* parseUserAgentString */,
     'vendor/jquery.pageless' /* pageless */
   ], function(I18n, $) {
-
-    I18n = I18n.scoped('page_views._table');
 
     $(function(){
       $('#page_view_results').pageless({

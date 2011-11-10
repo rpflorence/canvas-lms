@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!quizzes.show',
   'jquery' /* $ */,
   'jquery.instructure_date_and_time' /* dateString, time_field, datetime_field */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_misc_plugins' /* ifExists, confirmDelete */,
   'message_students' /* messageStudents */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('quizzes.show');
 
 $(document).ready(function () {
   function loadStudents() {

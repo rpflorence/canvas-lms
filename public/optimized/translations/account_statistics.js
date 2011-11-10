@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{accounts:{statistics:{heading_value:"Valor",over_time_link:"sobre el tiempo",heading_date:"Fecha",title_data_point_over_time:"%{data_point} en el tiempo",loading_text:"cargando...",loading_error:"error"}}}}})

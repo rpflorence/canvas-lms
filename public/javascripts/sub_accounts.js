@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!sub_accounts',
   'jquery' /* jQuery, $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit, fillFormData */,
@@ -27,8 +27,6 @@ require([
   'jquery.loadingImg' /* loadingImage */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, jQuery) {
-
-  I18n = I18n.scoped('sub_accounts');
 
 jQuery(function($){
   

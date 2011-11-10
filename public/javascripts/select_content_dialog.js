@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!select_content_dialog',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSONFiles, ajaxJSON */,
   'jquery.instructure_forms' /* getFormData, errorBox */,
@@ -29,8 +29,6 @@ require([
   'jquery.loadingImg' /* loadingImage */,
   'jquery.templateData' /* fillTemplateData */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('select_content_dialog');
 
 $(document).ready(function() {
   var external_services = null;

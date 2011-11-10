@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!question_banks',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO */,
@@ -27,8 +27,6 @@ require([
   'jquery.loadingImg' /* loadingImage */,
   'jquery.templateData' /* fillTemplateData, getTemplateData */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped("question_banks");
 
 $(document).ready(function() {
   $(".add_bank_link").click(function(event) {

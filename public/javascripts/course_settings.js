@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!course_settings',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* parseFromISO, date_field */,
@@ -35,8 +35,6 @@ require([
   'jqueryui/sortable' /* /\.sortable/ */,
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('course_settings');
 
   var GradePublishing = {
     status: null,

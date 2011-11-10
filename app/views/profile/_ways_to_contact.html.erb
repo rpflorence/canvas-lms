@@ -35,7 +35,7 @@
 <% js_block :i18n_scope => 'profile._ways_to_contact' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!profile._ways_to_contact',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit, fillFormData, getFormData, formErrors */,
@@ -47,8 +47,6 @@ require([
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('profile._ways_to_contact');
 
 $(document).ready(function() {
   $("#communication_channels").tabs();

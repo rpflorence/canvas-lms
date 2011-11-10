@@ -26,7 +26,7 @@
 // affect anyone else
 
 require([
-  'i18n',
+  'i18n!eportfolio',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.inst_tree' /* instTree */,
@@ -41,8 +41,6 @@ require([
   'jqueryui/progressbar' /* /\.progressbar/ */,
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('eportfolio');
 
   function ePortfolioFormData() {
     var data = $("#edit_page_form").getFormData({

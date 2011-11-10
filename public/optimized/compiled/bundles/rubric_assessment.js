@@ -1,0 +1,1 @@
+(function(){require(["rubric_assessment"])}).call(this),define("compiled/bundles/rubric_assessment",function(){})

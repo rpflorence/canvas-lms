@@ -45,12 +45,10 @@
   google.load('visualization', '1', {'packages':['annotatedtimeline']});
 
   require([
-    'i18n' /* I18n.t */,
+    'i18n!accounts.statistics_page_views',
     'jquery' /* $ */,
     'jquery.instructure_date_and_time' /* date_field */
   ], function(I18n, $) {
-
-    I18n = I18n.scoped('accounts.statistics_page_views');
 
     $(document).ready(function() {
       $(".date_field").date_field();

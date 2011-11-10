@@ -15,14 +15,12 @@
 <% js_block :i18n_scope => "users.new" do %>
 <script type="text/javascript">
 require([
-  'i18n' /* I18n.t */,
+  'i18n!users.new',
   'jquery' /* $ */,
   'jquery.fancyplaceholder' /* fancyPlaceholder */,
   'jquery.instructure_forms' /* getFormData, formErrors */,
   'jquery.rails_flash_notifications' /* flashError */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('users.new');
 
 $(function(){
   $(".field-with-fancyplaceholder input").fancyPlaceholder();

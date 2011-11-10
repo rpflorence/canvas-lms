@@ -35,7 +35,7 @@
  */
 require([
   'INST', // INST
-  'i18n',
+  'i18n!ajax_errors',
   'jquery', // $
   'str/htmlEscape',
   'jquery.ajaxJSON', // ajaxJSON
@@ -44,8 +44,6 @@ require([
   'jquery.rails_flash_notifications', // flashError
   'jqueryui/effects/drop'
 ], function(INST, I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('ajax_errors');
 
   var iTest = window.iTest;
 

@@ -17,7 +17,7 @@
  */
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!profile',
   'jquery' /* $ */,
   'compiled/util/BackoffPoller',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -29,8 +29,6 @@ require([
   'jquery.templateData' /* fillTemplateData */,
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(INST, I18n, $, BackoffPoller) {
-
-  I18n = I18n.scoped('profile');
 
   var $profile_table = $(".profile_table"),
       $update_profile_form = $("#update_profile_form"),

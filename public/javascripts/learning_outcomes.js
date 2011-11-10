@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!learning_outcomes',
   'jquery' /* $ */,
   'find_outcome',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -32,7 +32,6 @@ require([
   'jqueryui/sortable' /* /\.sortable/ */
 ], function(I18n, $, find_outcome) {
 
-  I18n = I18n.scoped("learning_outcomes");
   var outcomes = {
     ratingCounter: 0,
     updateOutcome: function(outcome, $outcome) {

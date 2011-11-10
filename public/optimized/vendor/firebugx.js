@@ -1,0 +1,1 @@
+define("firebugx",function(){if(!("console"in window)){var a=["log","debug","info","warn","error","assert","dir","dirxml","group","groupEnd","time","timeEnd","count","trace","profile","profileEnd"];window.console={};for(var b=0;b<a.length;b++)window.console[a[b]]=function(){}}})

@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!groups',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit */,
   'jquery.loadingImg' /* loadingImage */,
@@ -24,7 +24,6 @@ require([
   'vendor/jquery.pageless' /* pageless */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-  I18n = I18n.scoped('groups');
 
   $(document).ready(function() {
     $(".add_group_link").click(function(event) {

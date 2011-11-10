@@ -16,14 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!content_exports',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('content_exports');
 
 $(document).ready(function(event) {
   var state = 'nothing';

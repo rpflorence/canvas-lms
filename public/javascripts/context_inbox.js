@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!context.inbox',
   'jquery' /* $ */,
   'str/pluralize',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -27,8 +27,6 @@ require([
   'vendor/jquery.pageless' /* pageless */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $, pluralize) {
-
-  I18n = I18n.scoped('context.inbox');
 
   $(document).ready(function() {
     var previous_visible_types = [];

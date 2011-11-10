@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 define([
-  'i18n',
+  'i18n!instructure',
   'jquery' /* jQuery, $ */,
   'str/htmlEscape',
   'jquery.instructure_jquery_patches' /* windowScrollTop */,
@@ -26,8 +26,6 @@ define([
   'jqueryui/sortable' /* /\.sortable/ */,
   'jqueryui/widget' /* /\.widget/ */
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('instructure');
 
   $.parseDateTime = function(date, time) {
     var date = $.datepicker.parseDate('mm/dd/yy', date);

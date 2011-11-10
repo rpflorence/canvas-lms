@@ -71,15 +71,13 @@
   <script>
   require([
     'INST' /* INST */,
-    'i18n' /* I18n.t */,
+    'i18n!eportfolio',
     'jquery' /* $ */,
     'jquery.google-analytics' /* trackPage */,
     'jquery.instructure_jquery_patches' /* windowScrollTop */,
     'jquery.instructure_misc_plugins' /* showIf */,
     'jquery.templateData' /* fillTemplateData, getTemplateData */
   ], function(INST, I18n, $) {
-
-    I18n = I18n.scoped('eportfolio');
 
     $(document).ready(function() {
       $(".close_wizard_link").click(function(event) {

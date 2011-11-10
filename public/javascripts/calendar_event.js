@@ -17,7 +17,7 @@
  */
 
 require([
-  'i18n',
+  'i18n!calendar_events',
   'jquery' /* jQuery, $ */,
   'wikiSidebar',
   'jquery.instructure_date_and_time' /* parseFromISO, date_field, time_field, /\$\.datetime/ */,
@@ -30,7 +30,6 @@ require([
   'vendor/date' /* Date.parse */
 ], function(I18n, $, wikiSidebar) {
 
-  I18n = I18n.scoped('calendar_events');
   var noContentText = I18n.t('no_content', "No Content");
 
 $(function($) {

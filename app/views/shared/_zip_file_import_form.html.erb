@@ -25,15 +25,13 @@
 <% js_block :i18n_scope => "zip_file_imports" do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!zip_file_imports',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* getJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.rails_flash_notifications' /* flashError */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('zip_file_imports');
 
 $(document).ready(function() {
   $("#zip_file_import_form #zip_file").change(function() {

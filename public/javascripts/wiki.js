@@ -17,7 +17,7 @@
  */
 
 define([
-  'i18n',
+  'i18n!wiki_pages',
   'jquery' /* $ */,
   'wikiSidebar',
   'jquery.ajaxJSON' /* ajaxJSON */,
@@ -27,8 +27,6 @@ define([
   'jquery.templateData' /* fillTemplateData */,
   'tinymce.editor_box' /* editorBox */
 ], function(I18n, $, wikiSidebar) {
-
-  I18n = I18n.scoped("wiki_pages");
 
   // private variables & methods
   function initEditViewSecondary(){

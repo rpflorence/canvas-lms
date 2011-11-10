@@ -15,13 +15,11 @@ $('#form').disableWhileLoading(promise, {
 
 */
 define([
-  'i18n',
+  'i18n!instructure',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'vendor/jquery.spin' /* /\.spin/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('instructure');
 
   $.fn.disableWhileLoading = function(deferred, options) {
     return this.each(function() {

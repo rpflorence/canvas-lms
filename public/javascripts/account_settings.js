@@ -1,5 +1,5 @@
 require([
-  'i18n',
+  'i18n!account_settings',
   'jquery', // $
   'jquery.ajaxJSON', // ajaxJSON
   'jquery.instructure_date_and_time', // date_field, time_field, datetime_field, /\$\.datetime/
@@ -13,8 +13,6 @@ require([
   'vendor/jquery.scrollTo', // /\.scrollTo/
   'jqueryui/tabs' // /\.tabs/
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('account_settings');
 
   $(document).ready(function() {
     $("#account_settings").submit(function() {

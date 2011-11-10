@@ -16,14 +16,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!site_admin',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_helpers' /* replaceTags */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('site_admin');
 
   $(document).ready(function() {
     $(".over_time_link").live('click', function(event) {

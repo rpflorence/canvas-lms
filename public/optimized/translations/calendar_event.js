@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{calendar_events:{no_content:"Sin Contenido"}}}})

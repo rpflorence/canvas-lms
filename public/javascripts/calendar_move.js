@@ -16,14 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 define([
-  'i18n',
+  'i18n!calendars',
   'jquery' /* $ */,
   'jquery.instructure_date_and_time' /* datepicker */,
   'jquery.templateData' /* fillTemplateData */,
   'jqueryui/datepicker' /* /\.datepicker/ */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('calendars');
   var monthNames = I18n.t('#date.month_names');
 
   function makeDate(date) {

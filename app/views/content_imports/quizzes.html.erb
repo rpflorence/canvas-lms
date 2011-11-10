@@ -66,12 +66,10 @@
 <% js_block :i18n_scope => 'content_imports.quizzes' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!content_imports.quizzes',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit, formErrors */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('content_imports.quizzes');
 
 $(document).ready(function() {
   $qti_file_import_form = $("#qti_file_import_form");

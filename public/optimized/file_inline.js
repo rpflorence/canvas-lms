@@ -1,0 +1,1 @@
+require(["jquery","jquery.instructure_misc_plugins"],function(a){a(function(a){a("#file_content").css("width","100%").fillWindowWithMe()})})

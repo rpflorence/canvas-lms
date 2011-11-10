@@ -17,7 +17,7 @@
  */
 
 require([
- 'i18n',
+ 'i18n!edit_rubric',
  'jquery' /* $ */,
  'find_outcome',
  'jquery.ajaxJSON' /* ajaxJSON */,
@@ -30,8 +30,6 @@ require([
  'vendor/jquery.ba-throttle-debounce' /* debounce */,
  'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('edit_rubric');
 
   var rubricEditing = {
     htmlBody: null,

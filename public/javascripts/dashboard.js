@@ -16,13 +16,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!dashboard',
   'jquery' /* $ */,
   'jquery.instructure_jquery_patches' /* windowScrollTop */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('dashboard');
+  $(function initDashbardJs(){
 
   $(function initDashbardJs(){
 

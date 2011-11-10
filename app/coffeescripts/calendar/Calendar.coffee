@@ -4,8 +4,8 @@
 
 # requires jQuery, and vendor/fullcalendar
 
-define 'compiled/calendar/Calendar', [
-  'i18n'
+define [
+  'i18n!calendar'
   'compiled/util/hsvToRgb'
   'jst/calendar/calendarApp'
   'compiled/calendar/EventDataSource'
@@ -14,8 +14,6 @@ define 'compiled/calendar/Calendar', [
   'compiled/calendar/EditEventDetailsDialog'
   'compiled/calendar/Scheduler'
 ], (I18n, hsvToRgb, calendarAppTemplate, EventDataSource, commonEventFactory, ShowEventDetailsDialog, EditEventDetailsDialog, Scheduler) ->
-
-  I18n = I18n.scoped 'calendar'
 
   class Calendar
     constructor: (selector, @contexts, @manageContexts, @dataSource) ->

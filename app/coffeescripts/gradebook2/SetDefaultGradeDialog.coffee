@@ -1,5 +1,5 @@
 define [
-  'i18n'
+  'i18n!gradebook2'
   'jquery'
   'jst/SetDefaultGradeDialog'
   'jquery.disableWhileLoading'
@@ -11,11 +11,9 @@ define [
   # this is a partial needed by the 'SetDefaultGradeDialog' template
   # since you cant declare a dependency in a handlebars file, we need to do it here
   'jst/_grading_box'
-
 ], (I18n, $, setDefaultGradeDialogTemplate) ->
 
-  I18n = I18n.scoped 'gradebook2'
-  class SetDefaultGradeDialog
+  class @SetDefaultGradeDialog
     constructor: (@assignment, @gradebook) ->
       @initDialog()
 

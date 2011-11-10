@@ -15,21 +15,19 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-define('gradebook_uploads', [
-  'i18n',
+require([
+  'i18n!gradebook',
   'jquery' /* $ */,
   'str/htmlEscape',
-  'vendor/slickgrid-googlecode/slick.grid',
   'vendor/slickgrid-googlecode/slick.editors',
+  'vendor/slickgrid-googlecode/slick.grid',
   'jquery.instructure_forms' /* errorBox */,
   'jquery.instructure_misc_helpers' /* /\.detect/ */,
   'jquery.templateData' /* fillTemplateData */,
   'vendor/underscore' /* /_\./ */
-], function(I18n, $, htmlEscape, SlickGrid) {
+], function(I18n, $, htmlEscape) {
 
-  I18n = I18n.scoped('gradebook');
-
-  var GradebookUploader = {
+  return {
     init:function(){
       var gradebookGrid,
           mergedGradebook = $.extend(true, {}, originalGradebook), // originalGradebook is set in the view
@@ -318,5 +316,5 @@ define('gradebook_uploads', [
       }
     }
   };
-  return GradebookUploader;
+
 });

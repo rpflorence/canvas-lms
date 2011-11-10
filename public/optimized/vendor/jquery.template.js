@@ -1,0 +1,1 @@
+define(["jquery"],function(a){a.extend({template:function(a,b){a=a||"",b=b||{};var c=/#\{([^{}]*)}/g,d=function(a,c){return typeof b[c]=="string"||typeof b[c]=="number"?b[c]:a};return a.replace(c,d)}})})

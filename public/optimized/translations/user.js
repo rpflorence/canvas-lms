@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{users:{confirms:{unenroll_user:"¿Seguro que quiere anular la inscripción de este usuario?"}}}}})

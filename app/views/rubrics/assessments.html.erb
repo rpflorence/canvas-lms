@@ -59,7 +59,7 @@
 <% js_block :i18n_scope => 'rubrics.assessments' do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!rubrics.assessments',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* formSubmit, getFormData */,
@@ -68,8 +68,6 @@ require([
   'jquery.templateData' /* fillTemplateData */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('rubrics.assessments');
 
   window.rubricEditing = null;
   window.rubricAssociation = {

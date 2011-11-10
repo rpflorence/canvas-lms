@@ -1,0 +1,1 @@
+define("ENV",function(){return typeof ENV=="undefined"&&(ENV={}),ENV})

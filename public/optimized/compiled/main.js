@@ -1,0 +1,1 @@
+(function(){require(["compiled/widget/courseList","compiled/helpDialog"],function(a,b){return a.init(),b.initTriggers()})}).call(this)

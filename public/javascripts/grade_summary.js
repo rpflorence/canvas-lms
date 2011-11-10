@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!gradebook',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_forms' /* getFormData */,
@@ -27,8 +27,6 @@ require([
   'jquery.templateData' /* fillTemplateData, getTemplateData */,
   'media_comments' /* mediaComment, mediaCommentThumbnail */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('gradebook');
 
   function setGroupData(groups, $group) {
     if($group.length === 0) { return; }

@@ -17,14 +17,12 @@
  */
 
 require([
-  'i18n',
+  'i18n!message_students',
   'jquery' /* $ */,
   'jquery.instructure_forms' /* formSubmit */,
   'jquery.instructure_jquery_patches' /* /\.dialog/ */,
   'jquery.instructure_misc_plugins' /* showIf */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped("message_students");
 
   var $message_students_dialog = $("#message_students_dialog");
   var currentSettings = {};

@@ -18,7 +18,7 @@
 
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!gradebook',
   'jquery' /* $ */,
   'str/htmlEscape',
   'ajax_errors' /* INST.log_error */,
@@ -45,8 +45,6 @@ require([
   'vendor/spin' /* new Spinner */,
   'vendor/ui.selectmenu' /* /\.selectmenu/ */
 ], function(INST, I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('gradebook');
 
   // TODO: get this out of the view speed_grader.html.erb so it doesn't have to be global
   anonymousAssignment = false;

@@ -308,7 +308,7 @@
 <% js_block :i18n_scope => 'assignments' do %>
 <script type="text/javascript">
 require([
-  'i18n' /* I18n.t */,
+  'i18n!assignments'
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSONPreparedFiles, ajaxJSON */,
   'jquery.inst_tree' /* instTree */,
@@ -322,7 +322,6 @@ require([
   'jqueryui/tabs' /* /\.tabs/ */
 ], function(I18n, $) {
 
-  I18n = I18n.scoped('assignments');
   window.allowed_extensions = <%= raw((@assignment.allowed_extensions || []).to_json) %>
 
 $(document).ready(function() {

@@ -1,0 +1,1 @@
+$.extend(!0,I18n=I18n||{},{translations:{es:{content_imports:{buttons:{"import":"Importar el Curso"},messages:{uploading:"Cargando la Exportación del Curso..."},errors:{upload_failed:"La carga falló , intente de nuevo"}}}}})

@@ -1,12 +1,10 @@
-define 'compiled/calendar/Scheduler', [
-  'i18n'
+define [
+  'i18n!calendar'
   'jst/calendar/appointmentGroupList'
   'jst/calendar/schedulerRightSideAdminSection'
   'compiled/calendar/EditAppointmentGroupDialog'
   'jst/calendar/deleteItem'
 ], (I18n, appointmentGroupListTemplate, schedulerRightSideAdminSectionTemplate, EditAppointmentGroupDialog, deleteItemTemplate) ->
-
-  I18n = I18n.scoped 'calendar'
 
   class Scheduler
     constructor: (selector, @calendar) ->

@@ -3,7 +3,7 @@
 <% js_block :i18n_scope => "pseudonyms.login"  do %>
 <script>
 require([
-  'i18n' /* I18n.t */,
+  'i18n!pseudonyms.login',
   'jquery' /* $ */,
   'jquery.fancyplaceholder' /* fancyPlaceholder */,
   'jquery.google-analytics' /* trackPage, trackPageview */,
@@ -11,8 +11,6 @@ require([
   'jquery.loadingImg' /* loadingImage */,
   'jquery.rails_flash_notifications' /* flashMessage */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('pseudonyms.login');
 
 $(document).ready(function() {
   $("#register_link").click(function(){

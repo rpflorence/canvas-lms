@@ -268,7 +268,7 @@
 <% js_block :i18n_scope => 'content_imports' do %>
 <script type="text/javascript">
 require([
-  'i18n' /* I18n.t */,
+  'i18n!content_imports' /* I18n.t */,
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */,
   'jquery.instructure_date_and_time' /* date_field */,
@@ -279,8 +279,6 @@ require([
   'jqueryui/autocomplete' /* /\.autocomplete/ */,
   'jqueryui/progressbar' /* /\.progressbar/ */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('content_imports');
 
 $(document).ready(function() {
   var $frame = $("<iframe id='copy_course_target' name='copy_course_target' src='about:blank'/>");

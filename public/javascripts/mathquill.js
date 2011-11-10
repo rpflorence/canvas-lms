@@ -3,12 +3,9 @@
  * License, Usage and Readme at http://mathquill.com
  */
 define([
-  'i18n',
+  'i18n!mathquill',
   'jquery' /* jQuery, $ */
 ], function(I18n, $) {
-
-
-  I18n = I18n.scoped('mathquill');
 
   var _, //temp variable of prototypes
     undefined,

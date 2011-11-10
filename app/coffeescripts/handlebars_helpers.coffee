@@ -1,6 +1,6 @@
 define 'compiled/handlebars_helpers', [
   'vendor/handlebars.vm'
-  'i18n'
+  'i18nObj'
   'jquery'
   'str/htmlEscape'
   'jquery.instructure_date_and_time'

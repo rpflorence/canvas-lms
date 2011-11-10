@@ -1,10 +1,8 @@
 define [
-  'i18n'
+  'i18n!conversations_intro'
   'compiled/slideshow'
   'jquery.ajaxJSON'
 ], (I18n, Slideshow) ->
-
-  I18n = I18n.scoped 'conversations_intro'
 
   ->
     introSlideshow = new Slideshow('conversations_intro')

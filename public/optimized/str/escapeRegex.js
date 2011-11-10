@@ -1,0 +1,1 @@
+define(function(){return function(a){return a.replace(/[-[\]{}()*+?.,\\^$|#\s]/g,"\\$&")}})

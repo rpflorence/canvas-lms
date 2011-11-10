@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 require([
-  'i18n',
+  'i18n!tinymce',
   'jquery' /* $ */,
   'str/htmlEscape',
   'jquery.dropdownList' /* dropdownList */,
@@ -25,8 +25,6 @@ require([
   'jquery.instructure_misc_plugins' /* /\.log/ */,
   'tinymce.editor_box' /* editorBox */
 ], function(I18n, $, htmlEscape) {
-
-  I18n = I18n.scoped('#tinymce');
 
   var TRANSLATIONS = {
     embed_from_external_tool: I18n.t('embed_from_external_tool', '"Embed content from External Tool"'),

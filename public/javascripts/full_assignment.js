@@ -17,7 +17,7 @@
  */
 require([
   'INST' /* INST */,
-  'i18n',
+  'i18n!full_assignment',
   'jquery' /* jQuery, $ */,
   'wikiSidebar',
   'str/htmlEscape',
@@ -33,8 +33,6 @@ require([
   'vendor/date' /* Date.parse */,
   'vendor/jquery.scrollTo' /* /\.scrollTo/ */
 ], function(INST, I18n, $, wikiSidebar, htmlEscape) {
-
-  I18n = I18n.scoped('full_assignment');
 
   // TODO: get these out of global ns
   // hideFullAssignmentForm;

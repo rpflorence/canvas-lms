@@ -1,13 +1,11 @@
-define 'compiled/calendar/ShowEventDetailsDialog', [
-  'i18n'
+define [
+  'i18n!calendar'
   'compiled/util/Popover'
   'compiled/calendar/CommonEvent'
   'compiled/calendar/EditEventDetailsDialog'
   'jst/calendar/eventDetails'
   'jst/calendar/deleteItem'
 ], (I18n, Popover, CommonEvent, EditEventDetailsDialog, eventDetailsTemplate, deleteItemTemplate) ->
-
-  I18n = I18n.scoped 'calendar'
 
   class ShowEventDetailsDialog
     constructor: (event) ->

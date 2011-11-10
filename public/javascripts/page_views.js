@@ -18,12 +18,10 @@
 
 define([
   'INST' /* INST */,
-  'i18n',
+  'i18n!page_views',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */
 ], function(INST, I18n, $) {
-
-  I18n = I18n.scoped('page_views');
 
   $(document).ready(function(){
     var interactionSeconds = 0,

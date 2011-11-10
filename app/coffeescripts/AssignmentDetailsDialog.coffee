@@ -1,11 +1,9 @@
 define [
-  'i18n'
+  'i18n!AssignmentDetailsDialog'
   'jquery'
   'jst/AssignmentDetailsDialog'
   'jquery.instructure_jquery_patches' # dialog
 ], (I18n, $, assignmentDetailsDialogTemplate) ->
-
-  I18n = I18n.scoped 'AssignmentDetailsDialog'
 
   class AssignmentDetailsDialog
     constructor: (@assignment, @gradebook) ->

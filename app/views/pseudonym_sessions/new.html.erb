@@ -5,12 +5,10 @@
 <% js_block :i18n_scope => 'pseudonym_sessions' do %>
 <script type="text/javascript">
 require([
-  'i18n' /* I18n.t */,
+  'i18n!pseudonym_sessions',
   'jquery' /* $ */,
   'jquery.ajaxJSON' /* ajaxJSON */
 ], function(I18n, $) {
-
-  I18n = I18n.scoped('pseudonym_sessions');
 
 $(document).ready(function() {
   $(".re_send_confirmation_link").click(function(event) {
