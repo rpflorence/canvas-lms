@@ -23,7 +23,6 @@
 			t.isIE7 = t.isIE && /MSIE [7]/.test(ua);
 
 			t.isIE8 = t.isIE && /MSIE [8]/.test(ua);
-
 			t.isIE9 = t.isIE && /MSIE [9]/.test(ua);
 
 			t.isGecko = !t.isWebKit && /Gecko/.test(ua);
@@ -61,7 +60,7 @@
 
 			function getBase(n) {
 				if (n.src && /tiny_mce(|_gzip|_jquery|_prototype|_full)(_dev|_src)?.js/.test(n.src)) {
-					if (/_(src|dev)\.js/g.test(n.src))
+					if (false && /_(src|dev)\.js/g.test(n.src))
 						t.suffix = '_src';
 
 					if ((p = n.src.indexOf('?')) != -1)
@@ -7228,6 +7227,14 @@ window.tinymce.dom.Sizzle = Sizzle;
 				t.domLoaded = 1;
 				return;
 			}
+
+      /*
+			// When loaded asynchronously, the DOM Content may already be loaded
+			if (doc.readyState === "complete") {
+				t._pageInit(win);
+				return;
+			}
+      */
 
 			// Use IE method
 			if (doc.attachEvent) {

@@ -31,10 +31,17 @@
 //   options.url is used for the href of the link, and options.title
 //   will be the body of the link if no text is currently selected.
 
+tinyMCEPreInit = {
+  suffix: '',
+  base: '',
+  query: ''
+};
+
 define([
   'INST' /* INST */,
   'i18nObj',
   'jquery' /* jQuery, $ */,
+  'tinymce/jscripts/tiny_mce/tiny_mce_src',
   'instructure-jquery.ui.draggable-patch' /* /\.draggable/ */,
   'jquery.instructure_jquery_patches' /* /\.scrollTop/ */,
   'jquery.instructure_misc_helpers' /* /\$\.uniq/ */,
@@ -180,7 +187,7 @@ define([
       theme_advanced_more_colors: false,
       extended_valid_elements : "iframe[src|width|height|name|align|style|class]",
       content_css: "/stylesheets/compiled/instructure_style.css,/stylesheets/compiled/tinymce.editor_box.css",
-      editor_css:editor_css,
+      editor_css: editor_css,
       handle_event_callback: function(e) {
         if(e.type.indexOf('keydown') === 0 || e.type.indexOf('keypress') === 0) {
           if(e.keyCode === 9) {
