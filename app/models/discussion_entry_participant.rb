@@ -25,6 +25,10 @@ class DiscussionEntryParticipant < ActiveRecord::Base
   belongs_to :discussion_entry
   belongs_to :user
 
+  def self.read_entry_ids(entry_ids, user)
+    self.connection.select_values(sanitize_sql_array ["SELECT discussion_entry_id FROM #{connection.quote_table_name(table_name)} WHERE user_id = ? AND discussion_entry_id IN (?)", user.id, entry_ids]).map(&:to_i)
+  end
+
   workflow do
     state :unread
     state :read
