@@ -27,9 +27,10 @@ define [
     semanticDateRange : ->
       new Handlebars.SafeString semanticDateRange arguments...
 
-    friendlyDatetime : (datetime) ->
+    friendlyDatetime : (datetime, {hash: {pubdate}}) ->
+      #TODO: make sure pubdate works
       datetime = new Date(datetime)
-      new Handlebars.SafeString "<time title='#{datetime}' datetime='#{datetime.toISOString()}'>#{$.friendlyDatetime(datetime)}</time>"
+      new Handlebars.SafeString "<time title='#{datetime}' datetime='#{datetime.toISOString()}' #{'pubdate' if pubdate}>#{$.friendlyDatetime(datetime)}</time>"
 
     datetimeFormatted : (isoString) ->
       isoString = $.parseFromISO(isoString) unless isoString.datetime
