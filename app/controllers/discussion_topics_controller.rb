@@ -176,7 +176,12 @@ class DiscussionTopicsController < ApplicationController
         elsif @topics && @topics.length == 1 && !@topic.grants_right?(@current_user, session, :update)
           format.html { redirect_to named_context_url(@topics[0].context, :context_discussion_topics_url, :root_discussion_topic_id => @topic.id) }
         else
-          format.html { render :action => "show" }
+          format.html {
+            js_env :DISCUSSION => {
+              :ROOT_URL => named_context_url(@context, :api_v1_context_discussion_topic_view_url, @topic),
+            }
+            render :action => "show"
+          }
           format.json  { render :json => @entries.to_json(:methods => [:user_name, :read_state], :permissions => {:user => @current_user, :session => session}) }
         end
       end
