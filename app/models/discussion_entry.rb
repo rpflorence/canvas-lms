@@ -152,8 +152,8 @@ class DiscussionEntry < ActiveRecord::Base
     plaintext_message(length)
   end
 
-  def summary(length=250)
-    strip_and_truncate(message, :length => length)
+  def summary(length=50)
+    strip_and_truncate(message, :max_length => length)
   end
 
   def plaintext_message(length=250)

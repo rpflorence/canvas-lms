@@ -8,6 +8,7 @@ define [
       id: null
       parent_id: null
       summary: ''
+      message: '[no message]'
       user_id: null
       replies: []
       posted_at: "2012-03-05T22:46:08Z"
@@ -18,6 +19,13 @@ define [
 
     attributeMethods:
       author: null
+
+    url: ->
+      id = @get 'id'
+      "#{ENV.DISCUSSION.ENTRY_ROOT_URL}?ids[]=#{id}"
+
+    parse: (data) ->
+      data[0]
 
     author: ->
       author = DISCUSSION.participants.get @get 'user_id'

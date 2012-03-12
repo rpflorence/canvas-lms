@@ -1,11 +1,15 @@
 define [
   'use!backbone'
   'compiled/discussions/EntryCollection'
-  'jst/discussions/Entry'
-], (Backbone, EntryCollection, entryTemplate) ->
+  'jst/discussions/_entry_content'
+  'jst/discussions/entry_with_replies'
+], (Backbone, EntryCollection, entryContentPartial, entryWithRepliesTemplate) ->
 
   # EntryView and EntryCollectionView depend on each other, so we define
   # them in the same module to avoid circular dependency tricks
+
+  # save memory
+  noop = ->
 
   ##
   # View for a single entry
@@ -24,11 +28,13 @@ define [
       super
       @render()
 
+      id = @model.get 'id'
+
       # store the instance so we can delegate from DiscussionView
-      EntryView.instances[@model.get('id')] = this
+      EntryView.instances[id] = this
 
       # for event handler delegated from DiscussionView
-      @$el.attr 'data-id', @model.get 'id'
+      @$el.attr 'data-id', id
 
       @createReplies() if @model.get('replies').length
 
@@ -37,10 +43,13 @@ define [
       @$el.children('.summary').html '<p>[deleted]</p>'
 
     fetchFullEntry: ->
-      console.log 'fetchFullEntry'
+      @model.fetch()
+      # only fetch once
+      @fetchFullEntry = noop
 
     render: ->
-      @$el.html entryTemplate @model.toJSON()
+      @$el.html entryWithRepliesTemplate @model.toJSON()
+      super
 
     createReplies: ->
       el = @$el.find '.replies'

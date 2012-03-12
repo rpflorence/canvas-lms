@@ -179,6 +179,7 @@ class DiscussionTopicsController < ApplicationController
           format.html {
             js_env :DISCUSSION => {
               :ROOT_URL => named_context_url(@context, :api_v1_context_discussion_topic_view_url, @topic),
+              :ENTRY_ROOT_URL => named_context_url(@context, :api_v1_context_discussion_topic_entry_list_url, @topic)
             }
             render :action => "show"
           }
