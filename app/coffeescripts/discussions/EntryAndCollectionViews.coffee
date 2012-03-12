@@ -1,8 +1,9 @@
 define [
   'use!backbone'
   'compiled/discussions/EntryCollection'
-  'jst/discussions/Entry'
-], (Backbone, EntryCollection, entryTemplate) ->
+  'jst/discussions/_entry_content'
+  'jst/discussions/entry_with_replies'
+], (Backbone, EntryCollection, entryContentPartial, entryWithRepliesTemplate) ->
 
   # EntryView and EntryCollectionView depend on each other, so we define
   # them in the same module to avoid circular dependency tricks
@@ -40,7 +41,7 @@ define [
       console.log 'fetchFullEntry'
 
     render: ->
-      @$el.html entryTemplate @model.toJSON()
+      @$el.html entryWithRepliesTemplate @model.toJSON()
 
     createReplies: ->
       el = @$el.find '.replies'
