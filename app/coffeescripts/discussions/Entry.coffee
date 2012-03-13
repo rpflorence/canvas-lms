@@ -12,7 +12,7 @@ define [
       user_id: null
       replies: []
 
-      collapsedView: .6 < Math.random()
+      collapsedView: true
       attachments: false
       outOfContext: .3 < Math.random()
 

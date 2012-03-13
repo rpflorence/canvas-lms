@@ -48,6 +48,7 @@ define [
       url = "#{ENV.DISCUSSION.ENTRY_ROOT_URL}?#{ids}"
       $.getJSON url, (data) ->
         _.each data, (attributes) ->
+          attributes.collapsedView = false
           view = EntryView.instances[attributes.id]
           view.model.set attributes
 

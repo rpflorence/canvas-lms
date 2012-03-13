@@ -3,6 +3,7 @@ define [
   'compiled/discussions/EntryCollection'
   'jst/discussions/_entry_content'
   'jst/discussions/entry_with_replies'
+  'jquery.disableWhileLoading'
 ], (Backbone, EntryCollection, entryContentPartial, entryWithRepliesTemplate) ->
 
   # EntryView and EntryCollectionView depend on each other, so we define
@@ -28,26 +29,36 @@ define [
       super
       @render()
 
-      id = @model.get 'id'
-
       # store the instance so we can delegate from DiscussionView
+      id = @model.get 'id'
       EntryView.instances[id] = this
 
       # for event handler delegated from DiscussionView
       @$el.attr 'data-id', id
 
-      # only fetch once
-      @model.bind 'change:message', =>
-        @model.fetch = noop
+      @model.bind 'change:collapsedView', @onCollapsedView
+      @toggleCollapsedClass()
 
       @createReplies() if @model.get('replies').length
 
     remove: ->
-      @$el.children('.author').html ''
-      @$el.children('.summary').html '<p>[deleted]</p>'
 
-    fetchFullEntry: ->
-      @model.fetch()
+    toggleCollapsed: ->
+      @model.set 'collapsedView', !@model.get('collapsedView')
+
+    onCollapsedView: (model, collapsedView) =>
+      unless collapsedView and @model.get 'message'
+        @model.set 'message', @model.get 'summary'
+        req = @model.fetch()
+        #@$('.entry_content:first .message').disableWhileLoading req
+
+      @toggleCollapsedClass()
+
+    toggleCollapsedClass: ->
+      collapsedView = @model.get 'collapsedView'
+      @$el
+        .toggleClass('collapsed', collapsedView)
+        .toggleClass('expanded', !collapsedView)
 
     render: ->
       @$el.html entryWithRepliesTemplate @model.toJSON()

@@ -1,3 +1,12 @@
+<style>
+  .expanded > article > .entry_content  { background: green }
+  .expanded > article > .entry_content .summary { display: none }
+  .expanded > article > .entry_content .message { display: block }
+
+  .collapsed > article > .entry_content { background: red }
+  .collapsed > article > .entry_content .summary { display: block }
+  .collapsed > article > .entry_content .message { display: none }
+</style>
 <p>Unread: <span data-bind="unreadCount">-</span></p>
 <ul class=discussion-entries></ul>
 
