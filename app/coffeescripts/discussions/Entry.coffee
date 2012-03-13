@@ -11,11 +11,10 @@ define [
       message: null
       user_id: null
       replies: []
-      posted_at: "2012-03-05T22:46:08Z"
 
-      collapsedView: true
+      collapsedView: .6 < Math.random()
       attachments: false
-      outOfContext: false
+      outOfContext: .3 < Math.random()
 
     attributeMethods:
       author: null
