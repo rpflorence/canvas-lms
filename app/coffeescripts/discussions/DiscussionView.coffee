@@ -1,11 +1,12 @@
 define [
+  'use!underscore'
   'compiled/backbone-ext/Backbone'
   'compiled/discussions/EntryCollection'
   'compiled/discussions/EntryCollectionView'
   'compiled/discussions/EntryView'
   'compiled/discussions/ParticipantCollection'
   'jst/discussions/Discussion'
-], (Backbone, EntryCollection, EntryCollectionView, EntryView, ParticipantCollection, template) ->
+], (_, Backbone, EntryCollection, EntryCollectionView, EntryView, ParticipantCollection, template) ->
 
   class DiscussionView extends Backbone.View
 
@@ -23,7 +24,8 @@ define [
       @render()
 
       # kicks it all off
-      @model.fetch()
+      @model.fetch
+        success: @expandUnread
 
     render: ->
       @$el.html template @model.toJSON()
@@ -40,6 +42,14 @@ define [
     initParticipants: =>
       @participants = new ParticipantCollection
       @participants.reset @model.get 'participants'
+
+    expandUnread: =>
+      ids = _.map(@model.get('unread_entries'), (id) -> "ids[]=#{id}").join '&'
+      url = "#{ENV.DISCUSSION.ENTRY_ROOT_URL}?#{ids}"
+      $.getJSON url, (data) ->
+        _.each data, (attributes) ->
+          view = EntryView.instances[attributes.id]
+          view.model.set attributes
 
     handleEntryEvent: (event) ->
       event.stopPropagation()

@@ -7,8 +7,8 @@ define [
     defaults:
       id: null
       parent_id: null
-      summary: ''
-      message: '[no message]'
+      summary: null
+      message: null
       user_id: null
       replies: []
       posted_at: "2012-03-05T22:46:08Z"

@@ -36,6 +36,10 @@ define [
       # for event handler delegated from DiscussionView
       @$el.attr 'data-id', id
 
+      # only fetch once
+      @model.bind 'change:message', =>
+        @model.fetch = noop
+
       @createReplies() if @model.get('replies').length
 
     remove: ->
@@ -44,8 +48,6 @@ define [
 
     fetchFullEntry: ->
       @model.fetch()
-      # only fetch once
-      @fetchFullEntry = noop
 
     render: ->
       @$el.html entryWithRepliesTemplate @model.toJSON()
