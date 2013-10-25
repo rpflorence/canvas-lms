@@ -54,6 +54,7 @@ module Canvas
       def paths(cache_busting = false)
         @paths ||= {
           :ember => 'vendor/ember/ember',
+          'ember-data' => 'vendor/ember/ember-data',
           :common => 'compiled/bundles/common',
           :jqueryui => 'vendor/jqueryui',
           :use => 'vendor/use',

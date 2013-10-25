@@ -1,0 +1,12 @@
+{
+  "name": "canvas-lms",
+  "version": "0.0.0",
+  "authors": [
+    "instructure"
+  ],
+  "private": true,
+  "dependencies": {
+    "ember-data": "~1.0.0-beta.3",
+    "ember": "~1.1.1"
+  }
+}
