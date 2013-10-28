@@ -25,7 +25,7 @@ exports.savePath = function(template, env) {
   return {
     'new_app/config/app.coffee.hbs': 'app/coffeescripts/ember/'+env.appName+'/config/app.coffee',
     'new_app/config/routes.coffee.hbs': 'app/coffeescripts/ember/'+env.appName+'/config/routes.coffee',
-    'new_app/templates/application.hbs.hbs': 'app/coffeescripts/ember/'+env.appName+'/templates/application.hbs'
+    'new_app/templates/application.hbs.hbs': 'app/coffeescripts/ember/'+env.appName+'/templates/'+env.appName+'.hbs'
   }[template];
 };
 
