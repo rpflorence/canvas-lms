@@ -1,0 +1,45 @@
+<div class="header-bar"></div>
+<div class="item-group-container">
+  <ul class="ig-list">
+    {{#each module in controller itemController="module"}}
+      {{#view "module"}}
+        <li class="item-group-condensed">
+          <div class="ig-header">
+            <h2 class="ig-header-title">{{module.name}}</h2>
+            <div class="ig-header-admin">
+              <i class="icon-settings"></i><i class="icon-mini-arrow-down"></i>
+            </div>
+          </div>
+          <ul class="ig-list">
+            {{#each item in module.items}}
+              <li>
+                <div class="ig-row">
+                  <a {{bindAttr href="item.html_url"}} class="ig-title">{{item.title}}</a>
+                </div>
+              </li>
+            {{/each}}
+            {{#if isLoading}}
+              <li>
+                <div class="ig-row">
+                  <div class="loadingIndicator"></div>
+                </div>
+              </li>
+            {{else}}
+              {{#if itemLinks.next}}
+                <li>
+                  <div {{action loadNextItems}} class="ig-row">
+                    <a href="#" class="ig-title">+ Show More</a>
+                  </div>
+                </li>
+              {{/if}}
+            {{/if}}
+          </ul>
+          {{#unless itemLinks.next}}
+          <a href="#" {{action addModuleItem}}>+ add item</a>
+          {{/unless}}
+        </li>
+      {{/view}}
+    {{/each}}
+  </ul>
+</div>
+

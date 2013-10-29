@@ -1,5 +1,6 @@
 <% content_for :page_title, join_title(t('titles.course_modules', "Course Modules"), @context.name) %>
 <% if @domain_root_account.enable_draft? %>
+  <% @body_classes << 'padless-content with_item_groups' %>
   <% js_env :course_id => @context.id %>
   <%= js_bundle :modules %>
 <% else %>
